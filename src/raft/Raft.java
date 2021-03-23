@@ -3,6 +3,7 @@ package raft;
 
 import java.awt.*;
 import java.awt.image.*;
+import javax.swing.*;
 
 public class Raft extends Canvas implements Runnable{
 
@@ -10,7 +11,8 @@ public class Raft extends Canvas implements Runnable{
     private boolean running = false;
     
     public Raft() {
-        new Window(800, 600, "Raft", this);
+        
+        new Window(806, 600, "Raft", this);
     }
     
     public synchronized void start(){
@@ -66,6 +68,7 @@ public class Raft extends Canvas implements Runnable{
         }
     }
     
+    // rendereljuk a vonalakat
     private void render(){
         BufferStrategy bs = getBufferStrategy();
         if(bs == null){
@@ -74,16 +77,47 @@ public class Raft extends Canvas implements Runnable{
         }
         
         Graphics g = bs.getDrawGraphics();
+        Graphics g2 = bs.getDrawGraphics();
         
-        g.setColor(Color.BLUE);
-        g.fillRect(0, 0, 800, 600);
+        g.setColor(new Color(0,41,69));
+        g.fillRect(0, 0, 806, 600);        
+        drawLines(g);
+        
+        g2.setColor(new Color(133,94,66));
+        g2.fillRect(380, 286, 40, 38);
+        drawLines(g2);
+        
+        Handler.render(g);
         
         g.dispose();
+        g2.dispose();
         bs.show();
     }
-        
+    
+    // grid megrajzol
+    private void drawLines(Graphics g){
+        g.setColor(Color.BLACK);
+        int x = 0;
+        int y = 0;
+        int xmax = 800;
+        int ymax = 600;
+        int i = 0;
+        // random, hard code-olt, nagy, de nem tul nagy szam
+        // a while ciklusban, hogy biztos meglegyen rajzolva az a
+        // damn vonal
+        while (i < 71){
+            g.drawLine(x +(i * 20), y, i * 20, ymax);
+            i++;
+        }
+        i = 0;
+        while (i < 66){
+            g.drawLine(x, y + (i * 19), xmax, i * 19);
+            i++;
+        }
+    }
+
     private void tick(){
-        
+        Handler.tick();
     }
     
 }
