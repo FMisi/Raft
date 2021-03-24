@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class Keys implements KeyListener{
     
-    public boolean[] keyDown = {false, false, false, false, false, false, false, false};
+    public boolean[] keyDown = {false, false, false, false};
 
     @Override
     public void keyPressed(KeyEvent arg1) {

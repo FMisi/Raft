@@ -15,7 +15,8 @@ public class Player {
     }
     
     public void tick(){
-        
+        tile.second = (int)raft.Raft.clamp(tile.second, 0, 29);
+        tile.first = (int)raft.Raft.clamp(tile.first, 0, 39);
     }
     
     public void render(Graphics g){
