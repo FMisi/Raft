@@ -6,22 +6,21 @@ import javax.swing.*;
 import javax.sound.sampled.*;
 
 public class Window extends JFrame{
-    
-    ImageIcon icon = new ImageIcon("image/icon.png");
-    File musicLocation = new File("music/lopot.wav");
+
+    private File bgm = new File("music/raftgamemusic.wav");
+    private static Clip clip;
     
     public Window(int width, int height, String title, Raft raft){
         
         try{
             
-            File musicPath = musicLocation;
+            File musicPath = bgm;
             
-            if(musicPath.exists()){
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInput);
-                clip.start();
-            }
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+            clip = AudioSystem.getClip();
+            clip.open(audioInput);
+            clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
             
         }catch(Exception ex){
             ex.printStackTrace();
@@ -29,7 +28,7 @@ public class Window extends JFrame{
         
         JFrame frame = new JFrame(title);
         frame.setSize(width, height);
-        frame.setIconImage(icon.getImage());
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage("image/icon.png"));
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
@@ -37,7 +36,7 @@ public class Window extends JFrame{
         frame.setVisible(true);
         
         raft.start();
-              
+  
     }
     
 }

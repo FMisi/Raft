@@ -1,10 +1,14 @@
 package gameObjects;
 
 import java.awt.*;
+import java.io.File;
+import javax.swing.*;
 import other.Storage;
+import raft.Handler;
 
-public class Player {
+public class Player extends JPanel{
     
+    private File victorybgm = new File("music/raftvictory.wav");
     public Storage<Integer, Integer> tile = new Storage<Integer, Integer>();
     public Color c;
     
@@ -21,7 +25,10 @@ public class Player {
     
     public void render(Graphics g){
         g.setColor(c);
-        g.fillRect((tile.first *20) + 1, (tile.second * 19) + 1, 20, 19);
+        super.paintComponent(g);
+        ImageIcon imgicon = new ImageIcon("assets\\karakterunk.png");
+        //g.drawLine((tile.first *20) + 1, (tile.second * 19) + 1, 20, 19);
+        imgicon.paintIcon(this, g, (tile.first *20), (tile.second *19));
     }
     
 }
