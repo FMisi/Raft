@@ -12,6 +12,8 @@ public class Keys implements KeyListener{
             if(!keyDown[0]){
                 Handler.playerOne.tile.second--;
                 Handler.cselekvesek++;
+                Handler.ehseg--;
+                Handler.szomjusag--;
                 keyDown[0] = true;
             }
         }
@@ -19,6 +21,8 @@ public class Keys implements KeyListener{
             if(!keyDown[1]){
                 Handler.playerOne.tile.first--;
                 Handler.cselekvesek++;
+                Handler.ehseg--;
+                Handler.szomjusag--;
                 keyDown[1] = true;
             }
         }
@@ -26,6 +30,8 @@ public class Keys implements KeyListener{
             if(!keyDown[2]){
                 Handler.playerOne.tile.second++;
                 Handler.cselekvesek++;
+                Handler.ehseg--;
+                Handler.szomjusag--;
                 keyDown[2] = true;
             }
         }
@@ -33,6 +39,8 @@ public class Keys implements KeyListener{
             if(!keyDown[3]){
                 Handler.playerOne.tile.first++;
                 Handler.cselekvesek++;
+                Handler.ehseg--;
+                Handler.szomjusag--;
                 keyDown[3] = true;
             }
         }

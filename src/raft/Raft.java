@@ -76,9 +76,10 @@ public class Raft extends Canvas implements Runnable{
             createBufferStrategy(3);
             return;
         }
-        
+        /* g a hatter, g2 a raft, g3 az inventory */
         Graphics g = bs.getDrawGraphics();
         Graphics g2 = bs.getDrawGraphics();
+        Graphics g3 = bs.getDrawGraphics();
         
         g.setColor(new Color(0,41,69));
         g.fillRect(0, 0, 806, 600);        
@@ -88,10 +89,15 @@ public class Raft extends Canvas implements Runnable{
         g2.fillRect(380, 286, 40, 38);
         drawLines(g2);
         
+        g3.setColor(new Color(255,255,255));
+        g3.fillRect(0, 532, 800, 38);
+        drawLines(g3);
+        
         Handler.render(g);
         
         g.dispose();
         g2.dispose();
+        g3.dispose();
         bs.show();
     }
     
@@ -105,13 +111,13 @@ public class Raft extends Canvas implements Runnable{
         int i = 0;
         // random, hard code-olt, nagy, de nem tul nagy szam
         // a while ciklusban, hogy biztos meglegyen rajzolva az a
-        // damn vonal
+        // damn vonal, kiveve a 29, az direkt van
         while (i < 71){
             g.drawLine(x +(i * 20), y, i * 20, ymax);
             i++;
         }
         i = 0;
-        while (i < 66){
+        while (i < 29){
             g.drawLine(x, y + (i * 19), xmax, i * 19);
             i++;
         }
@@ -124,8 +130,14 @@ public class Raft extends Canvas implements Runnable{
     
     public static float clamp(float var, float min, float max){
         if(var > max){
+            Handler.cselekvesek--;
+            Handler.ehseg++;
+            Handler.szomjusag++;
             return max;
         } else if(var < min){
+            Handler.cselekvesek--;
+            Handler.ehseg++;
+            Handler.szomjusag++;
             return min;
         } else {
             return var;

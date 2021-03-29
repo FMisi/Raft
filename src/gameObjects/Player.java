@@ -1,14 +1,11 @@
 package gameObjects;
 
 import java.awt.*;
-import java.io.File;
 import javax.swing.*;
 import other.Storage;
-import raft.Handler;
 
 public class Player extends JPanel{
     
-    private File victorybgm = new File("music/raftvictory.wav");
     public Storage<Integer, Integer> tile = new Storage<Integer, Integer>();
     public Color c;
     
@@ -19,7 +16,8 @@ public class Player extends JPanel{
     }
     
     public void tick(){
-        tile.second = (int)raft.Raft.clamp(tile.second, 0, 29);
+        
+        tile.second = (int)raft.Raft.clamp(tile.second, 0, 27);
         tile.first = (int)raft.Raft.clamp(tile.first, 0, 39);
     }
     

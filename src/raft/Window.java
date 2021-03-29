@@ -8,7 +8,9 @@ import javax.sound.sampled.*;
 public class Window extends JFrame{
 
     private File bgm = new File("music/raftgamemusic.wav");
-    private static Clip clip;
+    private File victorybgm = new File("music/raftvictory.wav");
+    public static Clip clip;
+    public static Clip clip2;
     
     public Window(int width, int height, String title, Raft raft){
         
@@ -21,6 +23,19 @@ public class Window extends JFrame{
             clip.open(audioInput);
             clip.start();
             clip.loop(Clip.LOOP_CONTINUOUSLY);
+            
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        
+        try{
+            
+            File musicPath = victorybgm;
+            
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+            clip2 = AudioSystem.getClip();
+            clip2.open(audioInput);
+            clip2.stop();
             
         }catch(Exception ex){
             ex.printStackTrace();
