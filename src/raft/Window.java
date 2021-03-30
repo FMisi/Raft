@@ -9,8 +9,10 @@ public class Window extends JFrame{
 
     private File bgm = new File("music/raftgamemusic.wav");
     private File victorybgm = new File("music/raftvictory.wav");
+    private File wastedbgm = new File("music/wasted.wav");
     public static Clip clip;
     public static Clip clip2;
+    public static Clip clip3;
     
     public Window(int width, int height, String title, Raft raft){
         
@@ -36,6 +38,19 @@ public class Window extends JFrame{
             clip2 = AudioSystem.getClip();
             clip2.open(audioInput);
             clip2.stop();
+            
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        
+        try{
+            
+            File musicPath = wastedbgm;
+            
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+            clip3 = AudioSystem.getClip();
+            clip3.open(audioInput);
+            clip3.stop();
             
         }catch(Exception ex){
             ex.printStackTrace();

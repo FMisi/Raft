@@ -12,7 +12,7 @@ public class Raft extends Canvas implements Runnable{
     
     public Raft() {
         
-        new Window(806, 600, "Raft", this);
+        new Window(812, 606, "Raft", this);
         addKeyListener(new Keys());
     }
     
@@ -82,11 +82,11 @@ public class Raft extends Canvas implements Runnable{
         Graphics g3 = bs.getDrawGraphics();
         
         g.setColor(new Color(0,41,69));
-        g.fillRect(0, 0, 806, 600);        
+        g.fillRect(0, 0, 812, 606);        
         drawLines(g);
         
         g2.setColor(new Color(133,94,66));
-        g2.fillRect(380, 286, 40, 38);
+        g2.fillRect(380, 286, 40, 36);
         drawLines(g2);
         
         g3.setColor(new Color(255,255,255));
@@ -106,14 +106,14 @@ public class Raft extends Canvas implements Runnable{
         g.setColor(Color.BLACK);
         int x = 0;
         int y = 0;
-        int xmax = 800;
-        int ymax = 600;
+        int xmax = 812;
+        int ymax = 606;
         int i = 0;
         // random, hard code-olt, nagy, de nem tul nagy szam
         // a while ciklusban, hogy biztos meglegyen rajzolva az a
         // damn vonal, kiveve a 29, az direkt van
         while (i < 71){
-            g.drawLine(x +(i * 20), y, i * 20, ymax);
+            g.drawLine(x +(i * 20), y, i * 20, ymax-74);
             i++;
         }
         i = 0;
