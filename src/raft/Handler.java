@@ -8,12 +8,19 @@ public class Handler {
     // Milyen szinu a player es hol van:
     public static Player playerOne = new Player(Color.WHITE, 19, 15);
     // capa lehet egy playerTwo mondjuk...
+    public static Player deszkap = new Player(Color.WHITE, 0, 0);
+    public static Player levelp = new Player(Color.WHITE, 0, 0);
+    public static Player hulladekp = new Player(Color.WHITE, 0, 0);
     public static int cselekvesek = 0;
-    public static int ehseg = 110;
-    public static int szomjusag = 10;
+    public static int ehseg = 100;
+    public static int szomjusag = 100;
+    public static int deszka = 0;
+    public static int level = 0;
+    public static int hulladek = 0;
+    
     
     public static void tick(){
-        if(cselekvesek==1000){
+        if(cselekvesek==1000 || cselekvesek > 1000){
             Window.clip.stop();
             Window.clip2.start();
         }
@@ -36,6 +43,12 @@ public class Handler {
         Graphics2D g5 = (Graphics2D)g;
         // lose
         Graphics2D g6 = (Graphics2D)g;
+        // deszka
+         Graphics2D g7 = (Graphics2D)g;
+        // level
+         Graphics2D g8 = (Graphics2D)g;
+        // hulladek
+         Graphics2D g9 = (Graphics2D)g;
         
         g2.setFont(new Font("Arial", 14, 14));
         g2.drawString("Cselekvések: "+cselekvesek + "", 7, 14);
@@ -51,6 +64,12 @@ public class Handler {
         if((ehseg<=0) || (szomjusag<=0)){
             g6.drawString("VESZTETTÉL!:-(", 231, 101);
         }
+        g7.setFont(new Font("Arial", 14, 14));
+        g7.drawString("Deszka: "+deszka + "", 7, 74);
+        g8.setFont(new Font("Arial", 14, 14));
+        g8.drawString("Levél: "+level + "", 7, 94);
+        g9.setFont(new Font("Arial", 14, 14));
+        g9.drawString("Hulladék: "+hulladek + "", 7, 114);
     }
     
 }

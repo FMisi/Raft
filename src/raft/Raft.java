@@ -69,7 +69,7 @@ public class Raft extends Canvas implements Runnable{
         }
     }
     
-    // rendereljuk a vonalakat
+    // rendereljuk a grafikus elemeket
     private void render(){
         BufferStrategy bs = getBufferStrategy();
         if(bs == null){
@@ -81,11 +81,11 @@ public class Raft extends Canvas implements Runnable{
         Graphics g2 = bs.getDrawGraphics();
         Graphics g3 = bs.getDrawGraphics();
         
-        g.setColor(new Color(0,41,69));
+        g.setColor(new Color(0,102,173));
         g.fillRect(0, 0, 812, 606);        
         drawLines(g);
         
-        g2.setColor(new Color(133,94,66));
+        g2.setColor(new Color(160,82,45));
         g2.fillRect(380, 286, 40, 36);
         drawLines(g2);
         
