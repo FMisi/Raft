@@ -24,10 +24,6 @@ public class Handler {
             Window.clip.stop();
             Window.clip2.start();
         }
-        if((ehseg<=0) || (szomjusag<=0)){
-            Window.clip.stop();
-            Window.clip3.start();
-        }
         playerOne.tick();
     }
     
@@ -42,7 +38,7 @@ public class Handler {
         // szomjusag
         Graphics2D g5 = (Graphics2D)g;
         // lose
-        Graphics2D g6 = (Graphics2D)g;
+        
         // deszka
          Graphics2D g7 = (Graphics2D)g;
         // level
@@ -60,9 +56,8 @@ public class Handler {
         g4.drawString("Éhség: "+ehseg + "", 7, 34);
         g5.setFont(new Font("Arial", 14, 14));
         g5.drawString("Szomjúság: "+szomjusag + "", 7, 54);
-        g6.setFont(new Font("Arial", 38, 38));
         if((ehseg<=0) || (szomjusag<=0)){
-            g6.drawString("VESZTETTÉL!:-(", 231, 101);
+            Vesztettel(g);
         }
         g7.setFont(new Font("Arial", 14, 14));
         g7.drawString("Deszka: "+deszka + "", 7, 74);
@@ -72,4 +67,11 @@ public class Handler {
         g9.drawString("Hulladék: "+hulladek + "", 7, 114);
     }
     
+    private static void Vesztettel(Graphics g){
+        Window.clip.stop();
+        Window.clip3.start();
+        Graphics2D g6 = (Graphics2D) g;
+        g6.setFont(new Font("Arial", 38, 38));
+        g6.drawString("VESZTETTÉL!:-(", 231, 101);
+    }
 }

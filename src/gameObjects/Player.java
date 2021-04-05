@@ -12,6 +12,12 @@ public class Player extends JPanel{
     public Color c;
     public static int playerx;
     public static int playery;
+    
+    public static int capax;
+    public static int capay;
+    public static int cx = 20;
+    public static int cy = 19;
+    
     public static int initd = 0;
     public static int initl = 0;
     public static int inith = 0;
@@ -52,6 +58,8 @@ public class Player extends JPanel{
     public void tick(){
         playerx = tile.first *20;
         playery = tile.second *19;
+        capax = cx *20 -60;
+        capay = cy *19 -19;
         tile.second = (int)raft.Raft.clamp(tile.second, 0, 27);
         tile.first = (int)raft.Raft.clamp(tile.first, 0, 39);
     }
@@ -59,7 +67,12 @@ public class Player extends JPanel{
     public void render(Graphics g){
         g.setColor(c);
         super.paintComponent(g);
+        System.out.println("playerx= "+playerx);
+        System.out.println("playery= "+playery);
+        System.out.println("capax= "+capax);
+        System.out.println("capay= "+capay);
         ImageIcon karakterunk = new ImageIcon("assets\\karakterunk.png");
+        ImageIcon capa = new ImageIcon("assets\\capa.png");
         ImageIcon deszka = new ImageIcon("assets\\deszka.png");
         ImageIcon level = new ImageIcon("assets\\level.png");
         ImageIcon hulladek = new ImageIcon("assets\\hulladek.png");
@@ -70,65 +83,51 @@ public class Player extends JPanel{
         // (tile.first *20)-nal +-20-at jelent egy tile-nyi terulet
         // (tile.second *19)-nal +-19-at jelent egy tile-nyi terulet
         karakterunk.paintIcon(this, g, playerx, playery);
+        capa.paintIcon(this, g, capax, capay);
+        
+        if((playerx==capax && playery == capay)
+                ||(playerx==capax && playery-19 == capay)
+                ||(playerx==capax && playery+19 == capay)
+                ||(playerx-20==capax && playery == capay)
+                ||(playerx+20==capax && playery == capay)){
+            Vesztettel(g);
+        }
+        
         switch(Handler.cselekvesek){
             case 0:
-                switch(initd){
-                    case 0:
-                        nemrandxd = randxd;
-                        deszka.paintIcon(this, g, randxd, le);
-                    break;
-                    case 1:
-                    break;
-                }
-                switch(initl){
-                    case 0:
-                        nemrandxl = randxl;
-                        level.paintIcon(this, g, randxl, le);
-                    break;
-                    case 1:
-                    break;
-                }
-                switch(inith){
-                    case 0:
-                        nemrandxh = randxh;
-                        hulladek.paintIcon(this, g, randxh, le);
-                    break;
-                    case 1:
-                    break;
-                }
-            break;
+                nemrandxd = randxd;
+                deszka.paintIcon(this, g, randxd, le);
+                nemrandxl = randxl;
+                level.paintIcon(this, g, randxl, le);
+                nemrandxh = randxh;
+                hulladek.paintIcon(this, g, randxh, le);
+                nemrandxd = randxd;
             default:
-                switch(initd){
-                    case 0:
-                        nemrandxd = randxd;
-                        deszka.paintIcon(this, g, randxd, le);
-                        nemrandxd2 = randxd2;
-                        deszka2.paintIcon(this, g, randxd2, le-19);
-                    break;
-                    case 1:
-                    break;
-                }
-                switch(initl){
-                    case 0:
-                        nemrandxl = randxl;
-                        level.paintIcon(this, g, randxl, le);
-                        nemrandxl2 = randxl2;
-                        level2.paintIcon(this, g, randxl2, le-19);
-                    break;
-                    case 1:
-                    break;
-                }
-                switch(inith){
-                    case 0:
-                        nemrandxh = randxh;
-                        hulladek.paintIcon(this, g, randxh, le);
-                        nemrandxh2 = randxh2;
-                        hulladek2.paintIcon(this, g, randxh2, le-19);
-                    break;
-                    case 1:
-                    break;
-                }
-            break;
+                nemrandxd = randxd;
+                deszka.paintIcon(this, g, randxd, le);
+                nemrandxl = randxl;
+                level.paintIcon(this, g, randxl, le);
+                nemrandxh = randxh;
+                hulladek.paintIcon(this, g, randxh, le);
+                nemrandxd = randxd;
+                nemrandxd2 = randxd2;
+                deszka2.paintIcon(this, g, randxd2, le-19);
+                nemrandxl = randxl;
+                nemrandxl2 = randxl2;
+                level2.paintIcon(this, g, randxl2, le-19);
+                nemrandxh = randxh;
+                nemrandxh2 = randxh2;
+                hulladek2.paintIcon(this, g, randxh2, le-19);
         }
+                        
     }
+    
+    private static void Vesztettel(Graphics g){
+        raft.Window.clip.stop();
+        raft.Window.clip3.start();
+        Graphics2D g6 = (Graphics2D) g;
+        g6.setFont(new Font("Arial", 38, 38));
+        g6.drawString("VESZTETTÉL!:-(", 231, 101);
+    }
+    
 }

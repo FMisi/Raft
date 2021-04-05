@@ -86,7 +86,7 @@ public class Raft extends Canvas implements Runnable{
         drawLines(g);
         
         g2.setColor(new Color(160,82,45));
-        g2.fillRect(380, 286, 40, 36);
+        g2.fillRect(380, 284, 40, 38);
         drawLines(g2);
         
         g3.setColor(new Color(255,255,255));
