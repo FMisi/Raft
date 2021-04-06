@@ -7,16 +7,24 @@ public class Handler {
     
     // Milyen szinu a player es hol van:
     public static Player playerOne = new Player(Color.WHITE, 19, 15);
-    // capa lehet egy playerTwo mondjuk...
-    public static Player deszkap = new Player(Color.WHITE, 0, 0);
-    public static Player levelp = new Player(Color.WHITE, 0, 0);
-    public static Player hulladekp = new Player(Color.WHITE, 0, 0);
+    
+    // szamlalok
     public static int cselekvesek = 0;
     public static int ehseg = 100;
     public static int szomjusag = 100;
     public static int deszka = 0;
     public static int level = 0;
     public static int hulladek = 0;
+    
+    // inventory
+    public static int teruletbovites = 0;
+    public static int landzsa = 0;
+    public static int tuzhely = 0;
+    public static int viztisztito = 0;
+    public static int halo = 0;
+    
+    // annak eldontesere szolgalo valtozo, hogy tutajon vagyunk-e
+    public static boolean tutaje;
     
     
     public static void tick(){
@@ -40,11 +48,23 @@ public class Handler {
         // lose
         
         // deszka
-         Graphics2D g7 = (Graphics2D)g;
+        Graphics2D g7 = (Graphics2D)g;
         // level
-         Graphics2D g8 = (Graphics2D)g;
+        Graphics2D g8 = (Graphics2D)g;
         // hulladek
-         Graphics2D g9 = (Graphics2D)g;
+        Graphics2D g9 = (Graphics2D)g;
+         
+        // terulet bovites - 2 deszka + 2 level
+        Graphics2D g10 = (Graphics2D)g;
+        // landzsa         - 4 deszka + 4 level + 4 hulladek
+        Graphics2D g11 = (Graphics2D)g;
+        // tuzhely         - 2 deszka + 4 level + 3 hulladek
+        Graphics2D g12 = (Graphics2D)g;
+        // viztisztito     - 2 level  + 4 hulladek
+        Graphics2D g13 = (Graphics2D)g;
+        // halo            - 2 deszka + 6 level
+        Graphics2D g14 = (Graphics2D)g;
+        
         
         g2.setFont(new Font("Arial", 14, 14));
         g2.drawString("Cselekvések: "+cselekvesek + "", 7, 14);
@@ -65,6 +85,22 @@ public class Handler {
         g8.drawString("Levél: "+level + "", 7, 94);
         g9.setFont(new Font("Arial", 14, 14));
         g9.drawString("Hulladék: "+hulladek + "", 7, 114);
+        
+        g10.setColor(Color.BLACK);
+        g10.setFont(new Font("Arial", 14, 14));
+        g10.drawString("Területbővítés:  "+teruletbovites + "", 7, 548);
+        g11.setColor(Color.BLACK);
+        g11.setFont(new Font("Arial", 14, 14));
+        g11.drawString("Lándzsa:  "+landzsa + "", 157, 548);
+        g12.setColor(Color.BLACK);
+        g12.setFont(new Font("Arial", 14, 14));
+        g12.drawString("Tűzhely:  "+tuzhely + "", 307, 548);
+        g13.setColor(Color.BLACK);
+        g13.setFont(new Font("Arial", 14, 14));
+        g13.drawString("Víztisztító:  "+viztisztito + "", 457, 548);
+        g14.setColor(Color.BLACK);
+        g14.setFont(new Font("Arial", 14, 14));
+        g14.drawString("Háló:  "+halo + "", 607, 548);
     }
     
     private static void Vesztettel(Graphics g){

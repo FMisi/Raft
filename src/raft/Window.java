@@ -7,7 +7,7 @@ import javax.sound.sampled.*;
 
 public class Window extends JFrame{
 
-    private File bgm = new File("music/raftgamemusic.wav");
+    private File bgm = new File("music/raftgamemusic2B.wav");
     private File victorybgm = new File("music/raftvictory.wav");
     private File wastedbgm = new File("music/wasted.wav");
     public static Clip clip;

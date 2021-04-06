@@ -41,6 +41,8 @@ public class Player extends JPanel{
     public static int nemrandxl;
     int randxh = kox[random.nextInt(40)];
     public static int nemrandxh;
+    int randxho = kox[random.nextInt(40)];
+    public static int nemrandxho;
     
     int randxd2 = kox[random.nextInt(40)];
     public static int nemrandxd2;
@@ -48,6 +50,9 @@ public class Player extends JPanel{
     public static int nemrandxl2;
     int randxh2 = kox[random.nextInt(40)];
     public static int nemrandxh2;
+    
+    int nyersAnyagRandom = random.nextInt(100)+1;
+    int nyersAnyagMennyisegRandom = random.nextInt(3);
     
     public Player(Color c, int x, int y){
         tile.first = x;
@@ -76,9 +81,7 @@ public class Player extends JPanel{
         ImageIcon deszka = new ImageIcon("assets\\deszka.png");
         ImageIcon level = new ImageIcon("assets\\level.png");
         ImageIcon hulladek = new ImageIcon("assets\\hulladek.png");
-        ImageIcon deszka2 = new ImageIcon("assets\\deszka.png");
-        ImageIcon level2 = new ImageIcon("assets\\level.png");
-        ImageIcon hulladek2 = new ImageIcon("assets\\hulladek.png");
+        ImageIcon hordo = new ImageIcon("assets\\hordo.png");
         //g.drawLine((tile.first *20) + 1, (tile.second * 19) + 1, 20, 19);
         // (tile.first *20)-nal +-20-at jelent egy tile-nyi terulet
         // (tile.second *19)-nal +-19-at jelent egy tile-nyi terulet
@@ -93,33 +96,44 @@ public class Player extends JPanel{
             Vesztettel(g);
         }
         
-        switch(Handler.cselekvesek){
-            case 0:
+        if(nyersAnyagRandom<=32){
+            for(int i=0; i < nyersAnyagMennyisegRandom+1; i++){
                 nemrandxd = randxd;
-                deszka.paintIcon(this, g, randxd, le);
+                if(le>=532){
+                }
+                else{
+                    deszka.paintIcon(this, g, randxd+i*20-20, le);
+                }
+            }
+        } else if(nyersAnyagRandom<=64){
+            for(int i=0; i < nyersAnyagMennyisegRandom+1; i++){
                 nemrandxl = randxl;
-                level.paintIcon(this, g, randxl, le);
+                if(le>=532){
+                }
+                else{
+                    level.paintIcon(this, g, randxl+i*20-20, le);
+                }
+            }
+
+        } else if(nyersAnyagRandom<=96){
+            for(int i=0; i < nyersAnyagMennyisegRandom+1; i++){
                 nemrandxh = randxh;
-                hulladek.paintIcon(this, g, randxh, le);
-                nemrandxd = randxd;
-            default:
-                nemrandxd = randxd;
-                deszka.paintIcon(this, g, randxd, le);
-                nemrandxl = randxl;
-                level.paintIcon(this, g, randxl, le);
-                nemrandxh = randxh;
-                hulladek.paintIcon(this, g, randxh, le);
-                nemrandxd = randxd;
-                nemrandxd2 = randxd2;
-                deszka2.paintIcon(this, g, randxd2, le-19);
-                nemrandxl = randxl;
-                nemrandxl2 = randxl2;
-                level2.paintIcon(this, g, randxl2, le-19);
-                nemrandxh = randxh;
-                nemrandxh2 = randxh2;
-                hulladek2.paintIcon(this, g, randxh2, le-19);
+                if(le>=532){
+                }
+                else{
+                    hulladek.paintIcon(this, g, randxh+i*20-20, le);
+                }
+            }
+        } else{
+            for(int i=0; i < nyersAnyagMennyisegRandom+1; i++){
+                nemrandxho = randxho;
+                if(le>=532){
+                }
+                else{
+                    hordo.paintIcon(this, g, randxho+i*20-20, le);
+                }
+            }
         }
-                        
     }
     
     private static void Vesztettel(Graphics g){
