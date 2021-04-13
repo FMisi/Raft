@@ -12,7 +12,7 @@ public class Raft extends Canvas implements Runnable{
     public Raft() {
         
         
-        new Window(812, 606, "Raft", this);
+        new Window(812, 606, "Raft v0.98", this);
         addKeyListener(new Keys());
     }
     
@@ -109,9 +109,7 @@ public class Raft extends Canvas implements Runnable{
         int xmax = 812;
         int ymax = 606;
         int i = 0;
-        // random, hard code-olt, nagy, de nem tul nagy szam
-        // a while ciklusban, hogy biztos meglegyen rajzolva az a
-        // damn vonal, kiveve a 29, az direkt van
+
         while (i < 71){
             g.drawLine(x +(i * 20), y, i * 20, ymax-74);
             i++;
@@ -125,7 +123,6 @@ public class Raft extends Canvas implements Runnable{
 
     private void tick(){
         Handler.tick();
-        //EhsegEsSzomjusag.tick();  <--- Ezt meg nem talaltam ki hogyan kene...
     }
     
     public static float clamp(float var, float min, float max){

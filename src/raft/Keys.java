@@ -15,22 +15,21 @@ public class Keys implements KeyListener{
         if(arg1.getKeyCode() == KeyEvent.VK_W){
             if(!keyDown[0]){
                 Player.le += 19;
-                Player.le2 += 19;
                 Handler.playerOne.tile.second--;
                 Handler.cselekvesek++;
                 Handler.ehseg--;
                 Handler.szomjusag--; 
                 // capa korkorosen mozog KEZDETE
                 capaint++;
-                if(capaint>5){
+                if(capaint>7){
                     Player.cy-=1;
-                    if(capaint>10){
+                    if(capaint>14){
                         Player.cy+=1;
                         Player.cx-=1;
-                        if(capaint>15){
+                        if(capaint>21){
                             Player.cx+=1;
                             Player.cy+=1;
-                            if(capaint>19){
+                            if(capaint>27){
                                 capaint=0;
                             }
                             
@@ -46,22 +45,21 @@ public class Keys implements KeyListener{
         if(arg1.getKeyCode() == KeyEvent.VK_A){
             if(!keyDown[1]){
                 Player.le += 19;
-                Player.le2 += 19;
                 Handler.playerOne.tile.first--;
                 Handler.cselekvesek++;
                 Handler.ehseg--;
                 Handler.szomjusag--;
                 // capa korkorosen mozog KEZDETE
                 capaint++;
-                if(capaint>5){
+                if(capaint>7){
                     Player.cy-=1;
-                    if(capaint>10){
+                    if(capaint>14){
                         Player.cy+=1;
                         Player.cx-=1;
-                        if(capaint>15){
+                        if(capaint>21){
                             Player.cx+=1;
                             Player.cy+=1;
-                            if(capaint>19){
+                            if(capaint>27){
                                 capaint=0;
                             }
                             
@@ -77,22 +75,21 @@ public class Keys implements KeyListener{
         if(arg1.getKeyCode() == KeyEvent.VK_S){
             if(!keyDown[2]){
                 Player.le += 19;
-                Player.le2 += 19;
                 Handler.playerOne.tile.second++;
                 Handler.cselekvesek++;
                 Handler.ehseg--;
                 Handler.szomjusag--;
                 // capa korkorosen mozog KEZDETE
                 capaint++;
-                if(capaint>5){
+                if(capaint>7){
                     Player.cy-=1;
-                    if(capaint>10){
+                    if(capaint>14){
                         Player.cy+=1;
                         Player.cx-=1;
-                        if(capaint>15){
+                        if(capaint>21){
                             Player.cx+=1;
                             Player.cy+=1;
-                            if(capaint>19){
+                            if(capaint>27){
                                 capaint=0;
                             }
                             
@@ -108,22 +105,21 @@ public class Keys implements KeyListener{
         if(arg1.getKeyCode() == KeyEvent.VK_D){
             if(!keyDown[3]){
                 Player.le += 19;
-                Player.le2 += 19;
                 Handler.playerOne.tile.first++;
                 Handler.cselekvesek++;
                 Handler.ehseg--;
                 Handler.szomjusag--;
                 // capa korkorosen mozog KEZDETE
                 capaint++;
-                if(capaint>5){
+                if(capaint>7){
                     Player.cy-=1;
-                    if(capaint>10){
+                    if(capaint>14){
                         Player.cy+=1;
                         Player.cx-=1;
-                        if(capaint>15){
+                        if(capaint>21){
                             Player.cx+=1;
                             Player.cy+=1;
-                            if(capaint>19){
+                            if(capaint>27){
                                 capaint=0;
                             }
                             
@@ -136,6 +132,47 @@ public class Keys implements KeyListener{
                 keyDown[3] = true;
             }
         }
+        
+        //<editor-fold defaultstate="collapsed" desc="elemek craft-olasa">
+        if(arg1.getKeyCode() == KeyEvent.VK_T){
+            if(Handler.deszka>=2 && Handler.level>=2){
+                Handler.teruletbovites++;
+                Handler.deszka-=2;
+                Handler.level-=2;
+            }
+        }
+        if(arg1.getKeyCode() == KeyEvent.VK_L){
+            if(Handler.deszka>=4 && Handler.level>=4 && Handler.hulladek>=4){
+                Handler.landzsa++;
+                Handler.deszka-=4;
+                Handler.level-=4;
+                Handler.hulladek-=4;
+            }
+        }
+        if(arg1.getKeyCode() == KeyEvent.VK_Z){
+            if(Handler.deszka>=2 && Handler.level>=4 && Handler.hulladek>=3){
+                Handler.tuzhely++;
+                Handler.deszka-=2;
+                Handler.level-=4;
+                Handler.hulladek-=3;
+            }
+        }
+        if(arg1.getKeyCode() == KeyEvent.VK_V){
+            if(Handler.level>=2 && Handler.hulladek>=4){
+                Handler.viztisztito++;
+                Handler.level-=2;
+                Handler.hulladek-=4;
+            }
+        }
+        if(arg1.getKeyCode() == KeyEvent.VK_H){
+            if(Handler.deszka>=2 && Handler.level>=6){
+                Handler.halo++;
+                Handler.deszka-=2;
+                Handler.level-=6;
+            }
+        }
+        //</editor-fold>
+        
         if(arg1.getKeyCode() == KeyEvent.VK_SPACE){
             if(!keyDown[4]){
                 Random random = new Random();
@@ -143,9 +180,9 @@ public class Keys implements KeyListener{
                 System.out.println(randint);
                 
                 Player.le += 19;
-                Player.le2 += 19;
                 
-                // item pickup kezeles KEZDETE
+                //<editor-fold defaultstate="collapsed" desc="item pickup kezeles">
+                // deszkak
                 if((Player.playerx==Player.nemrandxd
                         || Player.playerx==Player.nemrandxd-20
                         || Player.playerx==Player.nemrandxd+20) && (Player.le==Player.playery+38
@@ -156,152 +193,6 @@ public class Keys implements KeyListener{
                     }
                     Player.initd++;
                 }
-                if((Player.playerx==Player.nemrandxl
-                        || Player.playerx==Player.nemrandxl-20
-                        || Player.playerx==Player.nemrandxl+20) && (Player.le==Player.playery+38
-                        || (Player.le==Player.playery+19)
-                        || (Player.le==Player.playery))){
-                    if(Player.initl==0){
-                    Handler.level++;
-                    }
-                    Player.initl++;
-                }
-                if((Player.playerx==Player.nemrandxh
-                        || Player.playerx==Player.nemrandxh-20
-                        || Player.playerx==Player.nemrandxh+20) && (Player.le==Player.playery+38
-                        || (Player.le==Player.playery+19)
-                        || (Player.le==Player.playery))){
-                    if(Player.inith==0){
-                    Handler.hulladek++;
-                    }
-                    Player.inith++;
-                }
-                if((Player.playerx==Player.nemrandxho
-                        || Player.playerx==Player.nemrandxho-20
-                        || Player.playerx==Player.nemrandxho+20) && (Player.le==Player.playery+38
-                        || (Player.le==Player.playery+19)
-                        || (Player.le==Player.playery))){
-                    //<editor-fold defaultstate="collapsed" desc="random hordos hokamoka">
-                    if(Player.initho==0){
-                        switch(randint){
-                            case 1:
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                break;
-                            case 2:
-                                Handler.level++;
-                                Handler.level++;
-                                Handler.level++;
-                                Handler.level++;
-                                Handler.level++;
-                                break;
-                            case 3:
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                break;
-                            case 4:
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.level++;
-                                Handler.level++;
-                                Handler.level++;
-                                break;
-                            case 5:
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.level++;
-                                Handler.level++;
-                                break;
-                            case 6:
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                break;
-                            case 7:
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                break;
-                            case 8:
-                                Handler.deszka++;
-                                Handler.level++;
-                                Handler.level++;
-                                Handler.level++;
-                                Handler.hulladek++;
-                                break;
-                            case 9:
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.level++;
-                                Handler.level++;
-                                Handler.hulladek++;
-                                break;
-                            case 10:
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.level++;
-                                Handler.hulladek++;
-                                break;
-                            case 11:
-                                Handler.level++;
-                                Handler.level++;
-                                Handler.level++;
-                                Handler.level++;
-                                Handler.hulladek++;
-                                break;
-                            case 12:
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.level++;
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                break;
-                            case 13:
-                                Handler.deszka++;
-                                Handler.level++;
-                                Handler.level++;
-                                Handler.level++;
-                                Handler.level++;
-                                break;
-                            case 14:
-                                Handler.deszka++;
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                break;
-                            case 15:
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.deszka++;
-                                Handler.level++;
-                                break;
-                            case 16:
-                                Handler.level++;
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                Handler.hulladek++;
-                                break;
-                        }
-                        Player.initho++;
-                    }
-                    //</editor-fold>
-                }
-                
                 if((Player.playerx==Player.nemrandxd2
                         || Player.playerx==Player.nemrandxd2-20
                         || Player.playerx==Player.nemrandxd2+20) && (Player.le2==Player.playery+38
@@ -311,6 +202,28 @@ public class Keys implements KeyListener{
                     Handler.deszka++;
                     }
                     Player.initd2++;
+                }
+                if((Player.playerx==Player.nemrandxd3
+                        || Player.playerx==Player.nemrandxd3-20
+                        || Player.playerx==Player.nemrandxd3+20) && (Player.le3==Player.playery+38
+                        || (Player.le3==Player.playery+19)
+                        || (Player.le3==Player.playery))){
+                    if(Player.initd3==0){
+                    Handler.deszka++;
+                    }
+                    Player.initd3++;
+                }
+                
+                // levelek
+                if((Player.playerx==Player.nemrandxl
+                        || Player.playerx==Player.nemrandxl-20
+                        || Player.playerx==Player.nemrandxl+20) && (Player.le==Player.playery+38
+                        || (Player.le==Player.playery+19)
+                        || (Player.le==Player.playery))){
+                    if(Player.initl==0){
+                    Handler.level++;
+                    }
+                    Player.initl++;
                 }
                 if((Player.playerx==Player.nemrandxl2
                         || Player.playerx==Player.nemrandxl2-20
@@ -322,6 +235,28 @@ public class Keys implements KeyListener{
                     }
                     Player.initl2++;
                 }
+                if((Player.playerx==Player.nemrandxl3
+                        || Player.playerx==Player.nemrandxl3-20
+                        || Player.playerx==Player.nemrandxl3+20) && (Player.le3==Player.playery+38
+                        || (Player.le3==Player.playery+19)
+                        || (Player.le3==Player.playery))){
+                    if(Player.initl3==0){
+                    Handler.level++;
+                    }
+                    Player.initl3++;
+                }
+                
+                // hulladekok
+                if((Player.playerx==Player.nemrandxh
+                        || Player.playerx==Player.nemrandxh-20
+                        || Player.playerx==Player.nemrandxh+20) && (Player.le==Player.playery+38
+                        || (Player.le==Player.playery+19)
+                        || (Player.le==Player.playery))){
+                    if(Player.inith==0){
+                    Handler.hulladek++;
+                    }
+                    Player.inith++;
+                }
                 if((Player.playerx==Player.nemrandxh2
                         || Player.playerx==Player.nemrandxh2-20
                         || Player.playerx==Player.nemrandxh2+20) && (Player.le2==Player.playery+38
@@ -331,6 +266,16 @@ public class Keys implements KeyListener{
                     Handler.hulladek++;
                     }
                     Player.inith2++;
+                }
+                if((Player.playerx==Player.nemrandxh3
+                        || Player.playerx==Player.nemrandxh3-20
+                        || Player.playerx==Player.nemrandxh3+20) && (Player.le3==Player.playery+38
+                        || (Player.le3==Player.playery+19)
+                        || (Player.le3==Player.playery))){
+                    if(Player.inith3==0){
+                    Handler.hulladek++;
+                    }
+                    Player.inith3++;
                 }
                 
                 // hordok
@@ -585,7 +530,133 @@ public class Keys implements KeyListener{
                     }
                     //</editor-fold>
                 }
-                // item pickup kezeles VEGE
+                
+                if((Player.playerx==Player.nemrandxho3
+                        || Player.playerx==Player.nemrandxho3-20
+                        || Player.playerx==Player.nemrandxho3+20) && (Player.le2==Player.playery+38
+                        || (Player.le2==Player.playery+19)
+                        || (Player.le2==Player.playery))){
+                    //<editor-fold defaultstate="collapsed" desc="random hordos hokamoka">
+                    if(Player.initho3==0){
+                        switch(randint){
+                            case 1:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                break;
+                            case 2:
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 3:
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 4:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 5:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 6:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 7:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 8:
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 9:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 10:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 11:
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 12:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 13:
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 14:
+                                Handler.deszka++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 15:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                break;
+                            case 16:
+                                Handler.level++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                        }
+                        Player.initho2++;
+                    }
+                    //</editor-fold>
+                }
+                //</editor-fold>
                 
                 // cselekvesek, ehseg, szomjusag kezelese KEZDETE
                 Handler.cselekvesek++;
@@ -595,15 +666,15 @@ public class Keys implements KeyListener{
                 
                 // capa korkorosen mozog KEZDETE
                 capaint++;
-                if(capaint>5){
+                if(capaint>7){
                     Player.cy-=1;
-                    if(capaint>10){
+                    if(capaint>14){
                         Player.cy+=1;
                         Player.cx-=1;
-                        if(capaint>15){
+                        if(capaint>21){
                             Player.cx+=1;
                             Player.cy+=1;
-                            if(capaint>19){
+                            if(capaint>27){
                                 capaint=0;
                             }
                             

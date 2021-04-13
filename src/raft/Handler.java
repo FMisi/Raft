@@ -12,9 +12,9 @@ public class Handler {
     public static int cselekvesek = 0;
     public static int ehseg = 100;
     public static int szomjusag = 100;
-    public static int deszka = 0;
-    public static int level = 0;
-    public static int hulladek = 0;
+    public static int deszka = 90;
+    public static int level = 90;
+    public static int hulladek = 90;
     
     // inventory
     public static int teruletbovites = 0;
@@ -45,7 +45,7 @@ public class Handler {
         Graphics2D g4 = (Graphics2D)g;
         // szomjusag
         Graphics2D g5 = (Graphics2D)g;
-        // lose
+        // lose - g6
         
         // deszka
         Graphics2D g7 = (Graphics2D)g;

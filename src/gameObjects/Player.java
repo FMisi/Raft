@@ -18,6 +18,7 @@ public class Player extends JPanel{
     public static int cx = 20;
     public static int cy = 19;
     
+    //<editor-fold defaultstate="collapsed" desc="init valtozok">
     public static int initd = 0;
     public static int initl = 0;
     public static int inith = 0;
@@ -28,6 +29,17 @@ public class Player extends JPanel{
     public static int inith2 = 0;
     public static int initho2 = 0;
     
+    public static int initd3 = 0;
+    public static int initl3 = 0;
+    public static int inith3 = 0;
+    public static int initho3 = 0;
+    
+    public static int initd4 = 0;
+    public static int initl4 = 0;
+    public static int inith4 = 0;
+    public static int initho4 = 0;
+    //</editor-fold>
+    
     public static int[] kox = {0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320,
         340, 360, 380, 400, 420, 440, 460, 480, 500, 520, 540, 560, 580, 600, 620, 640, 660, 680,
         700, 720, 740, 760, 780};
@@ -37,15 +49,21 @@ public class Player extends JPanel{
     
     Random random = new Random();
     
+    //<editor-fold defaultstate="collapsed" desc="le valtozok">
     public static int le = koy[0];
-    public static int le2 = koy[1];
-    public static int le3 = koy[2];
-    public static int le4 = koy[3];
-    public static int le5 = koy[4];
-    public static int le6 = koy[5];
-    public static int le7 = koy[6];
-    public static int le8 = koy[7];
+    public static int le2 = 0;
+    public static int le3 = 0;
+    public static int le4 = 0;
+    public static int le5 = 0;
+    public static int le6 = 0;
+    public static int le7 = 0;
+    public static int le8 = 0;
+    public static int le9 = 0;
+    public static int le10 = 0;
     
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="rand valtozok">
     int randx = kox[random.nextInt(40)];
     int randy = koy[random.nextInt(28)];
     
@@ -67,9 +85,43 @@ public class Player extends JPanel{
     int randxho2 = kox[random.nextInt(40)];
     public static int nemrandxho2;
     
-    int[] nyersAnyagRandom = {random.nextInt(100)+1, random.nextInt(100)+1};
+    int randxd3 = kox[random.nextInt(40)];
+    public static int nemrandxd3;
+    int randxl3 = kox[random.nextInt(40)];
+    public static int nemrandxl3;
+    int randxh3 = kox[random.nextInt(40)];
+    public static int nemrandxh3;
+    int randxho3 = kox[random.nextInt(40)];
+    public static int nemrandxho3;
     
-    int nyersAnyagMennyisegRandom = random.nextInt(3);
+    int randxd4 = kox[random.nextInt(40)];
+    public static int nemrandxd4;
+    int randxl4 = kox[random.nextInt(40)];
+    public static int nemrandxl4;
+    int randxh4 = kox[random.nextInt(40)];
+    public static int nemrandxh4;
+    int randxho4 = kox[random.nextInt(40)];
+    public static int nemrandxho4;
+    
+    int[] nyersAnyagRandom = {random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1,
+    random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1,
+    random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1,
+    random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1,
+    random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1,
+    random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1,
+    random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1,
+    random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1,
+    random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1,
+    random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1,
+    random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1,
+    random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1,
+    random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1,
+    random.nextInt(100)+1, random.nextInt(100)+1, random.nextInt(100)+1};
+    //</editor-fold>
+    
+    // ez lenne a soronkenti mennyiseget beallito random ertek, de ezt nem sikerult
+    // megvalositani all alone :S
+    // int nyersAnyagMennyisegRandom = random.nextInt(3);
     
     static boolean vesztettelBool = false;
     
@@ -82,19 +134,25 @@ public class Player extends JPanel{
     public void tick(){
         playerx = tile.first *20;
         playery = tile.second *19;
-        capax = cx *20 -60;
-        capay = cy *19 -19;
+        capax = cx *20 -80;
+        capay = cy *19;
         tile.second = (int)raft.Raft.clamp(tile.second, 0, 27);
         tile.first = (int)raft.Raft.clamp(tile.first, 0, 39);
     }
     
     public void render(Graphics g){
         
+        le2 = 19*Handler.cselekvesek-19;
+        le3 = 19*Handler.cselekvesek-38;
+        
         if(vesztettelBool == true){
             Graphics2D vg = (Graphics2D) g;
             vg.setColor(Color.WHITE);
             vg.setFont(new Font("Arial", 38, 38));
             vg.drawString("VESZTETTÉL!:-(", 231, 101);
+            Handler.cselekvesek=0;
+            Handler.ehseg=0;
+            Handler.szomjusag=0;
         }
         
         g.setColor(c);
@@ -122,9 +180,6 @@ public class Player extends JPanel{
         // Megol a capa? VEGE
         
         // Nyersanyagok rajzolasa KEZDETE
-        // Debug KEZDETE
-        nyersAnyagRandom[0] = 98;
-        // DEBUG VEGE
         int csk = Handler.cselekvesek;
         if(le>=532){
         }
@@ -207,6 +262,48 @@ public class Player extends JPanel{
                         default:
                             break;
                     }
+                }
+            }
+        }
+        if(csk>=2){
+            if(le3>=532){} else{
+                if(nyersAnyagRandom[2]<=32){
+                nemrandxd3 = randxd3;
+                switch(initd3){
+                    case 0:
+                        deszka.paintIcon(this, g, randxd3, le3);
+                            break;
+                        default:
+                            break;
+                    }
+            } else if(nyersAnyagRandom[2]<=64){
+                nemrandxl3 = randxl3;
+                switch(initl3){
+                case 0:
+                    level.paintIcon(this, g, randxl3, le3);
+                        break;
+                    default:
+                        break;
+                }
+
+            } else if(nyersAnyagRandom[2]<=96){
+                nemrandxh3 = randxh3;
+                switch(inith3){
+                case 0:
+                    hulladek.paintIcon(this, g, randxh3, le3);
+                        break;
+                    default:
+                        break;
+                }
+            } else{
+                nemrandxho3 = randxho3;
+                switch(initho3){
+                case 0:
+                    hordo.paintIcon(this, g, randxho3, le3);
+                        break;
+                    default:
+                        break;
+                }
                 }
             }
         }
