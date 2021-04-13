@@ -23,6 +23,11 @@ public class Player extends JPanel{
     public static int inith = 0;
     public static int initho = 0;
     
+    public static int initd2 = 0;
+    public static int initl2 = 0;
+    public static int inith2 = 0;
+    public static int initho2 = 0;
+    
     public static int[] kox = {0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320,
         340, 360, 380, 400, 420, 440, 460, 480, 500, 520, 540, 560, 580, 600, 620, 640, 660, 680,
         700, 720, 740, 760, 780};
@@ -62,8 +67,11 @@ public class Player extends JPanel{
     int randxho2 = kox[random.nextInt(40)];
     public static int nemrandxho2;
     
-    int nyersAnyagRandom = random.nextInt(100)+1;
+    int[] nyersAnyagRandom = {random.nextInt(100)+1, random.nextInt(100)+1};
+    
     int nyersAnyagMennyisegRandom = random.nextInt(3);
+    
+    static boolean vesztettelBool = false;
     
     public Player(Color c, int x, int y){
         tile.first = x;
@@ -81,12 +89,16 @@ public class Player extends JPanel{
     }
     
     public void render(Graphics g){
+        
+        if(vesztettelBool == true){
+            Graphics2D vg = (Graphics2D) g;
+            vg.setColor(Color.WHITE);
+            vg.setFont(new Font("Arial", 38, 38));
+            vg.drawString("VESZTETTÉL!:-(", 231, 101);
+        }
+        
         g.setColor(c);
         super.paintComponent(g);
-        System.out.println("playerx= "+playerx);
-        System.out.println("playery= "+playery);
-        System.out.println("capax= "+capax);
-        System.out.println("capay= "+capay);
         ImageIcon karakterunk = new ImageIcon("assets\\karakterunk.png");
         ImageIcon capa = new ImageIcon("assets\\capa.png");
         ImageIcon deszka = new ImageIcon("assets\\deszka.png");
@@ -105,16 +117,19 @@ public class Player extends JPanel{
                 ||(playerx==capax && playery+19 == capay)
                 ||(playerx-20==capax && playery == capay)
                 ||(playerx+20==capax && playery == capay)){
-            Vesztettel(g);
+            Vesztettel();
         }
         // Megol a capa? VEGE
         
         // Nyersanyagok rajzolasa KEZDETE
+        // Debug KEZDETE
+        nyersAnyagRandom[0] = 98;
+        // DEBUG VEGE
         int csk = Handler.cselekvesek;
         if(le>=532){
         }
         else{
-            if(nyersAnyagRandom<=32){
+            if(nyersAnyagRandom[0]<=32){
                 nemrandxd = randxd;
                 switch(initd){
                     case 0:
@@ -123,7 +138,7 @@ public class Player extends JPanel{
                         default:
                             break;
                     }
-            } else if(nyersAnyagRandom<=64){
+            } else if(nyersAnyagRandom[0]<=64){
                 nemrandxl = randxl;
                 switch(initl){
                 case 0:
@@ -133,7 +148,7 @@ public class Player extends JPanel{
                         break;
                 }
 
-            } else if(nyersAnyagRandom<=96){
+            } else if(nyersAnyagRandom[0]<=96){
                 nemrandxh = randxh;
                 switch(inith){
                 case 0:
@@ -144,7 +159,7 @@ public class Player extends JPanel{
                 }
             } else{
                nemrandxho = randxho;
-                switch(initd){
+                switch(initho){
                 case 0:
                     hordo.paintIcon(this, g, randxho, le);
                         break;
@@ -155,18 +170,18 @@ public class Player extends JPanel{
         }
         if(csk>=1){
             if(le2>=532){} else{
-                if(nyersAnyagRandom<=32){
+                if(nyersAnyagRandom[1]<=32){
                 nemrandxd2 = randxd2;
-                switch(initd){
+                switch(initd2){
                     case 0:
                         deszka.paintIcon(this, g, randxd2, le2);
                             break;
                         default:
                             break;
                     }
-            } else if(nyersAnyagRandom<=64){
+            } else if(nyersAnyagRandom[1]<=64){
                 nemrandxl2 = randxl2;
-                    switch(initl){
+                    switch(initl2){
                     case 0:
                         level.paintIcon(this, g, randxl2, le2);
                             break;
@@ -174,9 +189,9 @@ public class Player extends JPanel{
                             break;
                     }
 
-            } else if(nyersAnyagRandom<=96){
+            } else if(nyersAnyagRandom[1]<=96){
                 nemrandxh2 = randxh2;
-                    switch(inith){
+                    switch(inith2){
                     case 0:
                         hulladek.paintIcon(this, g, randxh2, le2);
                             break;
@@ -185,7 +200,7 @@ public class Player extends JPanel{
                     }
             } else{
                     nemrandxho2 = randxho2;
-                    switch(initd){
+                    switch(initho2){
                     case 0:
                         hordo.paintIcon(this, g, randxho2, le2);
                             break;
@@ -197,11 +212,9 @@ public class Player extends JPanel{
         }
     }
     // Nyersanyagok rajzolasa VEGE
-    private static void Vesztettel(Graphics g){
+    private static void Vesztettel(){
         raft.Window.clip.stop();
         raft.Window.clip3.start();
-        Graphics2D g6 = (Graphics2D) g;
-        g6.setFont(new Font("Arial", 38, 38));
-        g6.drawString("VESZTETTÉL!:-(", 231, 101);
+        vesztettelBool = true;
     }
 }

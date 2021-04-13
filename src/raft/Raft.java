@@ -11,6 +11,7 @@ public class Raft extends Canvas implements Runnable{
     
     public Raft() {
         
+        
         new Window(812, 606, "Raft", this);
         addKeyListener(new Keys());
     }

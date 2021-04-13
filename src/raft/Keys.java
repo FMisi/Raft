@@ -1,6 +1,7 @@
 package raft;
 
 import gameObjects.Player;
+import java.util.Random;
 import java.awt.event.*;
 
 public class Keys implements KeyListener{
@@ -45,6 +46,7 @@ public class Keys implements KeyListener{
         if(arg1.getKeyCode() == KeyEvent.VK_A){
             if(!keyDown[1]){
                 Player.le += 19;
+                Player.le2 += 19;
                 Handler.playerOne.tile.first--;
                 Handler.cselekvesek++;
                 Handler.ehseg--;
@@ -75,6 +77,7 @@ public class Keys implements KeyListener{
         if(arg1.getKeyCode() == KeyEvent.VK_S){
             if(!keyDown[2]){
                 Player.le += 19;
+                Player.le2 += 19;
                 Handler.playerOne.tile.second++;
                 Handler.cselekvesek++;
                 Handler.ehseg--;
@@ -105,6 +108,7 @@ public class Keys implements KeyListener{
         if(arg1.getKeyCode() == KeyEvent.VK_D){
             if(!keyDown[3]){
                 Player.le += 19;
+                Player.le2 += 19;
                 Handler.playerOne.tile.first++;
                 Handler.cselekvesek++;
                 Handler.ehseg--;
@@ -134,10 +138,12 @@ public class Keys implements KeyListener{
         }
         if(arg1.getKeyCode() == KeyEvent.VK_SPACE){
             if(!keyDown[4]){
+                Random random = new Random();
+                int randint = random.nextInt(16)+1;
+                System.out.println(randint);
+                
                 Player.le += 19;
-                Player.nemrandxd2 = Player.nemrandxd;
-                Player.nemrandxl2 = Player.nemrandxl;
-                Player.nemrandxh2 = Player.nemrandxh;
+                Player.le2 += 19;
                 
                 // item pickup kezeles KEZDETE
                 if((Player.playerx==Player.nemrandxd
@@ -175,8 +181,409 @@ public class Keys implements KeyListener{
                         || Player.playerx==Player.nemrandxho+20) && (Player.le==Player.playery+38
                         || (Player.le==Player.playery+19)
                         || (Player.le==Player.playery))){
-                    // random hordos hokamoka helye
-                    Player.initho++;
+                    //<editor-fold defaultstate="collapsed" desc="random hordos hokamoka">
+                    if(Player.initho==0){
+                        switch(randint){
+                            case 1:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                break;
+                            case 2:
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 3:
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 4:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 5:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 6:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 7:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 8:
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 9:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 10:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 11:
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 12:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 13:
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 14:
+                                Handler.deszka++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 15:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                break;
+                            case 16:
+                                Handler.level++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                        }
+                        Player.initho++;
+                    }
+                    //</editor-fold>
+                }
+                
+                if((Player.playerx==Player.nemrandxd2
+                        || Player.playerx==Player.nemrandxd2-20
+                        || Player.playerx==Player.nemrandxd2+20) && (Player.le2==Player.playery+38
+                        || (Player.le2==Player.playery+19)
+                        || (Player.le2==Player.playery))){
+                    if(Player.initd2==0){
+                    Handler.deszka++;
+                    }
+                    Player.initd2++;
+                }
+                if((Player.playerx==Player.nemrandxl2
+                        || Player.playerx==Player.nemrandxl2-20
+                        || Player.playerx==Player.nemrandxl2+20) && (Player.le2==Player.playery+38
+                        || (Player.le2==Player.playery+19)
+                        || (Player.le2==Player.playery))){
+                    if(Player.initl2==0){
+                    Handler.level++;
+                    }
+                    Player.initl2++;
+                }
+                if((Player.playerx==Player.nemrandxh2
+                        || Player.playerx==Player.nemrandxh2-20
+                        || Player.playerx==Player.nemrandxh2+20) && (Player.le2==Player.playery+38
+                        || (Player.le2==Player.playery+19)
+                        || (Player.le2==Player.playery))){
+                    if(Player.inith2==0){
+                    Handler.hulladek++;
+                    }
+                    Player.inith2++;
+                }
+                
+                // hordok
+                if((Player.playerx==Player.nemrandxho
+                        || Player.playerx==Player.nemrandxho-20
+                        || Player.playerx==Player.nemrandxho+20) && (Player.le==Player.playery+38
+                        || (Player.le==Player.playery+19)
+                        || (Player.le==Player.playery))){
+                    //<editor-fold defaultstate="collapsed" desc="random hordos hokamoka">
+                    if(Player.initho==0){
+                        switch(randint){
+                            case 1:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                break;
+                            case 2:
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 3:
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 4:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 5:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 6:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 7:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 8:
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 9:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 10:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 11:
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 12:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 13:
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 14:
+                                Handler.deszka++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 15:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                break;
+                            case 16:
+                                Handler.level++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                        }
+                        Player.initho++;
+                    }
+                    //</editor-fold>
+                }
+                
+                if((Player.playerx==Player.nemrandxho2
+                        || Player.playerx==Player.nemrandxho2-20
+                        || Player.playerx==Player.nemrandxho2+20) && (Player.le2==Player.playery+38
+                        || (Player.le2==Player.playery+19)
+                        || (Player.le2==Player.playery))){
+                    //<editor-fold defaultstate="collapsed" desc="random hordos hokamoka">
+                    if(Player.initho2==0){
+                        switch(randint){
+                            case 1:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                break;
+                            case 2:
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 3:
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 4:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 5:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 6:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 7:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 8:
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 9:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 10:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 11:
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                break;
+                            case 12:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 13:
+                                Handler.deszka++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                Handler.level++;
+                                break;
+                            case 14:
+                                Handler.deszka++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                            case 15:
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.deszka++;
+                                Handler.level++;
+                                break;
+                            case 16:
+                                Handler.level++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                Handler.hulladek++;
+                                break;
+                        }
+                        Player.initho2++;
+                    }
+                    //</editor-fold>
                 }
                 // item pickup kezeles VEGE
                 
