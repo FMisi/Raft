@@ -3,7 +3,6 @@ package raft;
 
 import java.awt.*;
 import java.awt.image.*;
-import javax.swing.*;
 
 public class Raft extends Canvas implements Runnable{
 
@@ -92,9 +91,9 @@ public class Raft extends Canvas implements Runnable{
         g3.setColor(new Color(255,255,255));
         g3.fillRect(0, 532, 800, 38);
         drawLines(g3);
-        
+
         Handler.render(g);
-        
+
         g.dispose();
         g2.dispose();
         g3.dispose();

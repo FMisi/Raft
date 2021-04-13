@@ -14,6 +14,7 @@ public class Keys implements KeyListener{
         if(arg1.getKeyCode() == KeyEvent.VK_W){
             if(!keyDown[0]){
                 Player.le += 19;
+                Player.le2 += 19;
                 Handler.playerOne.tile.second--;
                 Handler.cselekvesek++;
                 Handler.ehseg--;
@@ -138,30 +139,53 @@ public class Keys implements KeyListener{
                 Player.nemrandxl2 = Player.nemrandxl;
                 Player.nemrandxh2 = Player.nemrandxh;
                 
+                // item pickup kezeles KEZDETE
                 if((Player.playerx==Player.nemrandxd
                         || Player.playerx==Player.nemrandxd-20
                         || Player.playerx==Player.nemrandxd+20) && (Player.le==Player.playery+38
                         || (Player.le==Player.playery+19)
                         || (Player.le==Player.playery))){
+                    if(Player.initd==0){
                     Handler.deszka++;
+                    }
+                    Player.initd++;
                 }
                 if((Player.playerx==Player.nemrandxl
                         || Player.playerx==Player.nemrandxl-20
                         || Player.playerx==Player.nemrandxl+20) && (Player.le==Player.playery+38
                         || (Player.le==Player.playery+19)
                         || (Player.le==Player.playery))){
+                    if(Player.initl==0){
                     Handler.level++;
+                    }
+                    Player.initl++;
                 }
                 if((Player.playerx==Player.nemrandxh
                         || Player.playerx==Player.nemrandxh-20
                         || Player.playerx==Player.nemrandxh+20) && (Player.le==Player.playery+38
                         || (Player.le==Player.playery+19)
                         || (Player.le==Player.playery))){
+                    if(Player.inith==0){
                     Handler.hulladek++;
+                    }
+                    Player.inith++;
                 }
+                if((Player.playerx==Player.nemrandxho
+                        || Player.playerx==Player.nemrandxho-20
+                        || Player.playerx==Player.nemrandxho+20) && (Player.le==Player.playery+38
+                        || (Player.le==Player.playery+19)
+                        || (Player.le==Player.playery))){
+                    // random hordos hokamoka helye
+                    Player.initho++;
+                }
+                // item pickup kezeles VEGE
+                
+                // cselekvesek, ehseg, szomjusag kezelese KEZDETE
                 Handler.cselekvesek++;
                 Handler.ehseg--;
                 Handler.szomjusag--;
+                // cselekvesek, ehseg, szomjusag kezelese VEGE
+                
                 // capa korkorosen mozog KEZDETE
                 capaint++;
                 if(capaint>5){
