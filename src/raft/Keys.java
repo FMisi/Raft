@@ -8,7 +8,11 @@ public class Keys implements KeyListener{
     
     private int capaint = 0;
     
-    public static boolean[] keyDown = {false, false, false, false, false};
+    private boolean[] keyDown = {false, false, false, false, false, false};
+    
+    private static boolean halobool1 = false;
+    public static int halox;
+    public static int haloy;
 
     @Override
     public void keyPressed(KeyEvent arg1) {
@@ -174,6 +178,10 @@ public class Keys implements KeyListener{
         //</editor-fold>
         
         if(arg1.getKeyCode() == KeyEvent.VK_SPACE){
+            System.out.println("halox= "+halox);
+            System.out.println("Player.nemrandxd= "+Player.nemrandxd);
+            System.out.println("Player.nemrandxd2= "+Player.nemrandxd2);
+            System.out.println("Player.nemrandxd3= "+Player.nemrandxd3);
             if(!keyDown[4]){
                 Random random = new Random();
                 int randint = random.nextInt(16)+1;
@@ -687,6 +695,19 @@ public class Keys implements KeyListener{
                 keyDown[4] = true;
             }
         }
+        
+        if(arg1.getKeyCode() == KeyEvent.VK_5 || arg1.getKeyCode() == KeyEvent.VK_NUMPAD5){
+             if(!keyDown[5]){
+                if(Handler.halo > 0){
+                    halox=Player.playerx;
+                    haloy=Player.playery;
+                    halobool1=true;
+                    Handler.halo--;
+                }
+                keyDown[5] = true;
+             }
+        }
+        
     }
 
     @Override
@@ -706,9 +727,18 @@ public class Keys implements KeyListener{
         if(arg1.getKeyCode() == KeyEvent.VK_SPACE){
             keyDown[4] = false;
         }
+        if(arg1.getKeyCode() == KeyEvent.VK_5 || arg1.getKeyCode() == KeyEvent.VK_NUMPAD5){
+            keyDown[5] = false;
+        }
     }
     
     @Override
     public void keyTyped(KeyEvent arg1) {}
+
+    public static boolean isHalobool1() {
+        return halobool1;
+    }
     
 }
+
+    

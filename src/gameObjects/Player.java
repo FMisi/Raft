@@ -5,6 +5,7 @@ import java.util.Random;
 import javax.swing.*;
 import other.Storage;
 import raft.Handler;
+import raft.Keys;
 
 public class Player extends JPanel{
     
@@ -123,6 +124,8 @@ public class Player extends JPanel{
     // megvalositani all alone :S
     // int nyersAnyagMennyisegRandom = random.nextInt(3);
     
+
+    
     static boolean vesztettelBool = false;
     
     public Player(Color c, int x, int y){
@@ -163,11 +166,16 @@ public class Player extends JPanel{
         ImageIcon level = new ImageIcon("assets\\level.png");
         ImageIcon hulladek = new ImageIcon("assets\\hulladek.png");
         ImageIcon hordo = new ImageIcon("assets\\hordo.png");
+        ImageIcon halo = new ImageIcon("assets\\halo.png");
+        ImageIcon viztisztito = new ImageIcon("assets\\viztisztito.png");
         //g.drawLine((tile.first *20) + 1, (tile.second * 19) + 1, 20, 19);
         // (tile.first *20)-nal +-20-at jelent egy tile-nyi terulet
         // (tile.second *19)-nal +-19-at jelent egy tile-nyi terulet
         karakterunk.paintIcon(this, g, playerx, playery);
         capa.paintIcon(this, g, capax, capay);
+        if(Keys.isHalobool1()==true){
+            halo.paintIcon(this, g, Keys.halox, Keys.haloy);
+        }
         
         // Megol a capa? KEZDETE
         if((playerx==capax && playery == capay)
@@ -180,6 +188,22 @@ public class Player extends JPanel{
         // Megol a capa? VEGE
         
         // Nyersanyagok rajzolasa KEZDETE
+        
+        // Halokezeles KEZDETE
+        if(Keys.halox==randxd && Keys.haloy==le && initd==0){
+            initd++;
+            Handler.deszka++;
+        }
+        if(Keys.halox==randxd2 && Keys.haloy==le2 && initd2==0){
+            initd2++;
+            Handler.deszka++;
+        }
+        if(Keys.halox==randxd3 && Keys.haloy==le3 && initd3==0){
+            initd3++;
+            Handler.deszka++;
+        }
+        // Halokezeles VEGE
+        
         int csk = Handler.cselekvesek;
         if(le>=532){
         }
@@ -314,4 +338,15 @@ public class Player extends JPanel{
         raft.Window.clip3.start();
         vesztettelBool = true;
     }
+
+    public static int getPlayerx() {
+        return playerx;
+    }
+
+    public static int getPlayery() {
+        return playery;
+    }
+    
+    
+    
 }

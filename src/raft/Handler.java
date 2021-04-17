@@ -22,6 +22,8 @@ public class Handler {
     public static int tuzhely = 0;
     public static int viztisztito = 0;
     public static int halo = 0;
+    public static int nyersburgonya = 0;
+    public static int hal = 0;
     
     // annak eldontesere szolgalo valtozo, hogy tutajon vagyunk-e
     public static boolean tutaje;
@@ -65,6 +67,10 @@ public class Handler {
         // halo            - 2 deszka + 6 level
         Graphics2D g14 = (Graphics2D)g;
         
+        // burgonya
+        Graphics2D g15 = (Graphics2D)g;
+        // hal
+        Graphics2D g16 = (Graphics2D)g;  
         
         g2.setFont(new Font("Arial", 14, 14));
         g2.drawString("Cselekvések: "+cselekvesek + "", 7, 14);
@@ -101,6 +107,14 @@ public class Handler {
         g14.setColor(Color.BLACK);
         g14.setFont(new Font("Arial", 14, 14));
         g14.drawString("Háló:  "+halo + "", 607, 548);
+        
+        g15.setColor(Color.BLACK);
+        g15.setFont(new Font("Arial", 14, 14));
+        g15.drawString("Burgonya:  "+nyersburgonya + "", 7, 564);
+        
+        g16.setColor(Color.BLACK);
+        g16.setFont(new Font("Arial", 14, 14));
+        g16.drawString("Hal:  "+hal + "", 157, 564);
     }
     
     private static void Vesztettel(Graphics g){
