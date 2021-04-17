@@ -176,6 +176,39 @@ public class Player extends JPanel{
         if(Keys.isHalobool1()==true){
             halo.paintIcon(this, g, Keys.halox, Keys.haloy);
         }
+        if(Keys.isHalobool2()==true){
+            halo.paintIcon(this, g, Keys.halox2, Keys.haloy2);
+        }
+        if(Keys.isHalobool3()==true){
+            halo.paintIcon(this, g, Keys.halox3, Keys.haloy3);
+        }
+        if(Keys.isHalobool4()==true){
+            halo.paintIcon(this, g, Keys.halox4, Keys.haloy4);
+        }
+        if(Keys.isHalobool5()==true){
+            halo.paintIcon(this, g, Keys.halox5, Keys.haloy5);
+        }
+        if(Keys.isHalobool6()==true){
+            halo.paintIcon(this, g, Keys.halox6, Keys.haloy6);
+        }
+        if(Keys.isHalobool7()==true){
+            halo.paintIcon(this, g, Keys.halox7, Keys.haloy7);
+        }
+        if(Keys.isHalobool8()==true){
+            halo.paintIcon(this, g, Keys.halox8, Keys.haloy8);
+        }
+        if(Keys.isHalobool9()==true){
+            halo.paintIcon(this, g, Keys.halox9, Keys.haloy9);
+        }
+        if(Keys.isHalobool10()==true){
+            halo.paintIcon(this, g, Keys.halox10, Keys.haloy10);
+        }
+        if(Keys.isHalobool11()==true){
+            halo.paintIcon(this, g, Keys.halox11, Keys.haloy11);
+        }
+        if(Keys.isHalobool12()==true){
+            halo.paintIcon(this, g, Keys.halox12, Keys.haloy12);
+        }
         
         // Megol a capa? KEZDETE
         if((playerx==capax && playery == capay)
@@ -189,7 +222,8 @@ public class Player extends JPanel{
         
         // Nyersanyagok rajzolasa KEZDETE
         
-        // Halokezeles KEZDETE
+        //<editor-fold defaultstate="collapsed" desc="halo kezeles">
+        // halo #1
         if(Keys.halox==randxd && Keys.haloy==le && initd==0){
             initd++;
             Handler.deszka++;
@@ -202,7 +236,184 @@ public class Player extends JPanel{
             initd3++;
             Handler.deszka++;
         }
-        // Halokezeles VEGE
+        if(Keys.halox==randxl && Keys.haloy==le && initl==0){
+            initl++;
+            Handler.level++;
+        }
+        if(Keys.halox==randxl2 && Keys.haloy==le2 && initl2==0){
+            initl2++;
+            Handler.level++;
+        }
+        if(Keys.halox==randxl3 && Keys.haloy==le3 && inith3==0){
+            initl3++;
+            Handler.level++;
+        }
+        if(Keys.halox==randxh && Keys.haloy==le && inith==0){
+            inith++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox==randxh2 && Keys.haloy==le2 && inith2==0){
+            inith2++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox==randxh3 && Keys.haloy==le3 && inith3==0){
+            inith3++;
+            Handler.hulladek++;
+        }
+        
+        // halo #2
+        if(Keys.halox2==randxd && Keys.haloy2==le && initd==0){
+            initd++;
+            Handler.deszka++;
+        }
+        if(Keys.halox2==randxd2 && Keys.haloy2==le2 && initd2==0){
+            initd2++;
+            Handler.deszka++;
+        }
+        if(Keys.halox2==randxd3 && Keys.haloy2==le3 && initd3==0){
+            initd3++;
+            Handler.deszka++;
+        }
+        if(Keys.halox2==randxl && Keys.haloy2==le && initl==0){
+            initl++;
+            Handler.level++;
+        }
+        if(Keys.halox2==randxl2 && Keys.haloy2==le2 && initl2==0){
+            initl2++;
+            Handler.level++;
+        }
+        if(Keys.halox2==randxl3 && Keys.haloy2==le3 && inith3==0){
+            initl3++;
+            Handler.level++;
+        }
+        if(Keys.halox2==randxh && Keys.haloy2==le && inith==0){
+            inith++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox2==randxh2 && Keys.haloy2==le2 && inith2==0){
+            inith2++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox2==randxh3 && Keys.haloy2==le3 && inith3==0){
+            inith3++;
+            Handler.hulladek++;
+        }
+        
+        // halo #3
+        if(Keys.halox3==randxd && Keys.haloy3==le && initd==0){
+            initd++;
+            Handler.deszka++;
+        }
+        if(Keys.halox3==randxd2 && Keys.haloy3==le2 && initd2==0){
+            initd2++;
+            Handler.deszka++;
+        }
+        if(Keys.halox3==randxd3 && Keys.haloy3==le3 && initd3==0){
+            initd3++;
+            Handler.deszka++;
+        }
+        if(Keys.halox3==randxl && Keys.haloy3==le && initl==0){
+            initl++;
+            Handler.level++;
+        }
+        if(Keys.halox3==randxl2 && Keys.haloy3==le2 && initl2==0){
+            initl2++;
+            Handler.level++;
+        }
+        if(Keys.halox3==randxl3 && Keys.haloy3==le3 && inith3==0){
+            initl3++;
+            Handler.level++;
+        }
+        if(Keys.halox3==randxh && Keys.haloy3==le && inith==0){
+            inith++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox3==randxh2 && Keys.haloy3==le2 && inith2==0){
+            inith2++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox3==randxh3 && Keys.haloy3==le3 && inith3==0){
+            inith3++;
+            Handler.hulladek++;
+        }
+        
+        // halo #4
+        if(Keys.halox4==randxd && Keys.haloy4==le && initd==0){
+            initd++;
+            Handler.deszka++;
+        }
+        if(Keys.halox4==randxd2 && Keys.haloy4==le2 && initd2==0){
+            initd2++;
+            Handler.deszka++;
+        }
+        if(Keys.halox4==randxd3 && Keys.haloy4==le3 && initd3==0){
+            initd3++;
+            Handler.deszka++;
+        }
+        if(Keys.halox4==randxl && Keys.haloy4==le && initl==0){
+            initl++;
+            Handler.level++;
+        }
+        if(Keys.halox4==randxl2 && Keys.haloy4==le2 && initl2==0){
+            initl2++;
+            Handler.level++;
+        }
+        if(Keys.halox4==randxl3 && Keys.haloy4==le3 && inith3==0){
+            initl3++;
+            Handler.level++;
+        }
+        if(Keys.halox4==randxh && Keys.haloy4==le && inith==0){
+            inith++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox4==randxh2 && Keys.haloy4==le2 && inith2==0){
+            inith2++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox4==randxh3 && Keys.haloy4==le3 && inith3==0){
+            inith3++;
+            Handler.hulladek++;
+        }
+        
+        // halo #5
+        if(Keys.halox5==randxd && Keys.haloy5==le && initd==0){
+            initd++;
+            Handler.deszka++;
+        }
+        if(Keys.halox5==randxd2 && Keys.haloy5==le2 && initd2==0){
+            initd2++;
+            Handler.deszka++;
+        }
+        if(Keys.halox5==randxd3 && Keys.haloy5==le3 && initd3==0){
+            initd3++;
+            Handler.deszka++;
+        }
+        if(Keys.halox5==randxl && Keys.haloy5==le && initl==0){
+            initl++;
+            Handler.level++;
+        }
+        if(Keys.halox5==randxl2 && Keys.haloy5==le2 && initl2==0){
+            initl2++;
+            Handler.level++;
+        }
+        if(Keys.halox5==randxl3 && Keys.haloy5==le3 && inith3==0){
+            initl3++;
+            Handler.level++;
+        }
+        if(Keys.halox5==randxh && Keys.haloy5==le && inith==0){
+            inith++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox5==randxh2 && Keys.haloy5==le2 && inith2==0){
+            inith2++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox5==randxh3 && Keys.haloy5==le3 && inith3==0){
+            inith3++;
+            Handler.hulladek++;
+        }
+        
+        //</editor-fold>
         
         int csk = Handler.cselekvesek;
         if(le>=532){
@@ -328,15 +539,18 @@ public class Player extends JPanel{
                     default:
                         break;
                 }
-                }
             }
         }
     }
+}
     // Nyersanyagok rajzolasa VEGE
     private static void Vesztettel(){
-        raft.Window.clip.stop();
-        raft.Window.clip3.start();
-        vesztettelBool = true;
+        if(Handler.winbool==true){}
+        else{
+            raft.Window.clip.stop();
+            raft.Window.clip3.start();
+            vesztettelBool = true;
+        }
     }
 
     public static int getPlayerx() {

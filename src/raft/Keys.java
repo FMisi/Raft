@@ -11,9 +11,47 @@ public class Keys implements KeyListener{
     private boolean[] keyDown = {false, false, false, false, false, false};
     
     private static boolean halobool1 = false;
+    private static boolean halobool2 = false;
+    private static boolean halobool3 = false;
+    private static boolean halobool4 = false;
+    private static boolean halobool5 = false;
+    private static boolean halobool6 = false;
+    private static boolean halobool7 = false;
+    private static boolean halobool8 = false;
+    private static boolean halobool9 = false;
+    private static boolean halobool10 = false;
+    private static boolean halobool11 = false;
+    private static boolean halobool12 = false;
+    
+    //<editor-fold defaultstate="collapsed" desc="halo koordinatak">
     public static int halox;
     public static int haloy;
-
+    public static int halox2;
+    public static int haloy2;
+    public static int halox3;
+    public static int haloy3;
+    public static int halox4;
+    public static int haloy4;
+    public static int halox5;
+    public static int haloy5;
+    public static int halox6;
+    public static int haloy6;
+    public static int halox7;
+    public static int haloy7;
+    public static int halox8;
+    public static int haloy8;
+    public static int halox9;
+    public static int haloy9;
+    public static int halox10;
+    public static int haloy10;
+    public static int halox11;
+    public static int haloy11;
+    public static int halox12;
+    public static int haloy12;
+    //</editor-fold>
+    
+    private int haloszamlalo = 0;
+    
     @Override
     public void keyPressed(KeyEvent arg1) {
         if(arg1.getKeyCode() == KeyEvent.VK_W){
@@ -178,10 +216,8 @@ public class Keys implements KeyListener{
         //</editor-fold>
         
         if(arg1.getKeyCode() == KeyEvent.VK_SPACE){
-            System.out.println("halox= "+halox);
-            System.out.println("Player.nemrandxd= "+Player.nemrandxd);
-            System.out.println("Player.nemrandxd2= "+Player.nemrandxd2);
-            System.out.println("Player.nemrandxd3= "+Player.nemrandxd3);
+            System.out.println("Player.playerx= "+Player.playerx);
+            System.out.println("Player.playery= "+Player.playery);
             if(!keyDown[4]){
                 Random random = new Random();
                 int randint = random.nextInt(16)+1;
@@ -698,11 +734,105 @@ public class Keys implements KeyListener{
         
         if(arg1.getKeyCode() == KeyEvent.VK_5 || arg1.getKeyCode() == KeyEvent.VK_NUMPAD5){
              if(!keyDown[5]){
-                if(Handler.halo > 0){
-                    halox=Player.playerx;
-                    haloy=Player.playery;
-                    halobool1=true;
-                    Handler.halo--;
+                // Lerakhatja a jatekos a halot?
+                if((Handler.halo > 0)
+                /*&& ((Player.playerx==360 && Player.playery==266)
+                || (Player.playerx==380 && Player.playery==266)
+                || (Player.playerx==400 && Player.playery==266)
+                || (Player.playerx==420 && Player.playery==266)
+                || (Player.playerx==420 && Player.playery==285)
+                || (Player.playerx==420 && Player.playery==304)
+                || (Player.playerx==420 && Player.playery==323)
+                || (Player.playerx==400 && Player.playery==323)
+                || (Player.playerx==380 && Player.playery==323)
+                || (Player.playerx==360 && Player.playery==323)
+                || (Player.playerx==360 && Player.playery==304)
+                || (Player.playerx==360 && Player.playery==285))*/
+                ){
+                    if(haloszamlalo==0){
+                        halox=Player.playerx;
+                        haloy=Player.playery;
+                        haloszamlalo++;
+                        halobool1=true;
+                        Handler.halo--;
+                    }
+                    else if(haloszamlalo==1){
+                        halox2=Player.playerx;
+                        haloy2=Player.playery;
+                        haloszamlalo++;
+                        halobool2=true;
+                        Handler.halo--;
+                    }
+                    else if(haloszamlalo==2){
+                        halox3=Player.playerx;
+                        haloy3=Player.playery;
+                        haloszamlalo++;
+                        halobool3=true;
+                        Handler.halo--;
+                    }
+                    else if(haloszamlalo==3){
+                        halox4=Player.playerx;
+                        haloy4=Player.playery;
+                        haloszamlalo++;
+                        halobool4=true;
+                        Handler.halo--;
+                    }
+                    else if(haloszamlalo==4){
+                        halox5=Player.playerx;
+                        haloy5=Player.playery;
+                        haloszamlalo++;
+                        halobool5=true;
+                        Handler.halo--;
+                    }
+                    else if(haloszamlalo==5){
+                        halox6=Player.playerx;
+                        haloy6=Player.playery;
+                        haloszamlalo++;
+                        halobool6=true;
+                        Handler.halo--;
+                    }
+                    else if(haloszamlalo==6){
+                        halox7=Player.playerx;
+                        haloy7=Player.playery;
+                        haloszamlalo++;
+                        halobool7=true;
+                        Handler.halo--;
+                    }
+                    else if(haloszamlalo==7){
+                        halox8=Player.playerx;
+                        haloy8=Player.playery;
+                        haloszamlalo++;
+                        halobool8=true;
+                        Handler.halo--;
+                    }
+                    else if(haloszamlalo==8){
+                        halox9=Player.playerx;
+                        haloy9=Player.playery;
+                        haloszamlalo++;
+                        halobool9=true;
+                        Handler.halo--;
+                    }
+                    else if(haloszamlalo==9){
+                        halox10=Player.playerx;
+                        haloy10=Player.playery;
+                        haloszamlalo++;
+                        halobool10=true;
+                        Handler.halo--;
+                    }
+                    else if(haloszamlalo==10){
+                        halox11=Player.playerx;
+                        haloy11=Player.playery;
+                        haloszamlalo++;
+                        halobool11=true;
+                        Handler.halo--;
+                    }
+                    else if(haloszamlalo==11){
+                        halox12=Player.playerx;
+                        haloy12=Player.playery;
+                        haloszamlalo++;
+                        halobool12=true;
+                        Handler.halo--;
+                    }
                 }
                 keyDown[5] = true;
              }
@@ -735,9 +865,44 @@ public class Keys implements KeyListener{
     @Override
     public void keyTyped(KeyEvent arg1) {}
 
+    // getter-ek
     public static boolean isHalobool1() {
         return halobool1;
     }
+    public static boolean isHalobool2() {
+        return halobool2;
+    }
+    public static boolean isHalobool3() {
+        return halobool3;
+    }
+    public static boolean isHalobool4() {
+        return halobool4;
+    }
+    public static boolean isHalobool5() {
+        return halobool5;
+    }
+    public static boolean isHalobool6() {
+        return halobool6;
+    }public static boolean isHalobool7() {
+        return halobool7;
+    }
+    public static boolean isHalobool8() {
+        return halobool8;
+    }
+    public static boolean isHalobool9() {
+        return halobool9;
+    }
+    public static boolean isHalobool10() {
+        return halobool10;
+    }
+    public static boolean isHalobool11() {
+        return halobool11;
+    }
+    public static boolean isHalobool12() {
+        return halobool12;
+    }
+    
+    
     
 }
 

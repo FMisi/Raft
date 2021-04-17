@@ -25,9 +25,7 @@ public class Handler {
     public static int nyersburgonya = 0;
     public static int hal = 0;
     
-    // annak eldontesere szolgalo valtozo, hogy tutajon vagyunk-e
-    public static boolean tutaje;
-    
+    public static boolean winbool = false;
     
     public static void tick(){
         if(cselekvesek==1000 || cselekvesek > 1000){
@@ -76,6 +74,9 @@ public class Handler {
         g2.drawString("Cselekvések: "+cselekvesek + "", 7, 14);
         g3.setFont(new Font("Arial", 38, 38));
         if(cselekvesek>=1000){
+            winbool=true;
+            ehseg=100;
+            szomjusag=100;
             g3.drawString("TÚLÉLTED! GYŐZTÉL!:D", 171, 101);
         }
         g4.setFont(new Font("Arial", 14, 14));
@@ -83,6 +84,9 @@ public class Handler {
         g5.setFont(new Font("Arial", 14, 14));
         g5.drawString("Szomjúság: "+szomjusag + "", 7, 54);
         if((ehseg<=0) || (szomjusag<=0)){
+            cselekvesek=0;
+            ehseg=0;
+            szomjusag=0;
             Vesztettel(g);
         }
         g7.setFont(new Font("Arial", 14, 14));
@@ -118,10 +122,14 @@ public class Handler {
     }
     
     private static void Vesztettel(Graphics g){
-        Window.clip.stop();
-        Window.clip3.start();
-        Graphics2D g6 = (Graphics2D) g;
-        g6.setFont(new Font("Arial", 38, 38));
-        g6.drawString("VESZTETTÉL!:-(", 231, 101);
+        if(winbool==true){
+        }
+        else{
+            Window.clip.stop();
+            Window.clip3.start();
+            Graphics2D g6 = (Graphics2D) g;
+            g6.setFont(new Font("Arial", 38, 38));
+            g6.drawString("VESZTETTÉL!:-(", 231, 101);
+        }
     }
 }
