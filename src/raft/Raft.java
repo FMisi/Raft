@@ -98,6 +98,7 @@ public class Raft extends Canvas implements Runnable{
         g.dispose();
         g2.dispose();
         g3.dispose();
+        
         bs.show();
     }
     

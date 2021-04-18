@@ -12,9 +12,9 @@ public class Handler {
     public static int cselekvesek = 0;
     public static int ehseg = 100;
     public static int szomjusag = 100;
-    public static int deszka = 90;
-    public static int level = 90;
-    public static int hulladek = 90;
+    public static int deszka = 30;
+    public static int level = 30;
+    public static int hulladek = 30;
     
     // inventory
     public static int teruletbovites = 0;
@@ -22,7 +22,7 @@ public class Handler {
     public static int tuzhely = 0;
     public static int viztisztito = 0;
     public static int halo = 0;
-    public static int nyersburgonya = 0;
+    public static int burgonya = 0;
     public static int hal = 0;
     
     public static boolean winbool = false;
@@ -89,6 +89,7 @@ public class Handler {
             szomjusag=0;
             Vesztettel(g);
         }
+        
         g7.setFont(new Font("Arial", 14, 14));
         g7.drawString("Deszka: "+deszka + "", 7, 74);
         g8.setFont(new Font("Arial", 14, 14));
@@ -114,7 +115,7 @@ public class Handler {
         
         g15.setColor(Color.BLACK);
         g15.setFont(new Font("Arial", 14, 14));
-        g15.drawString("Burgonya:  "+nyersburgonya + "", 7, 564);
+        g15.drawString("Burgonya:  "+burgonya + "", 7, 564);
         
         g16.setColor(Color.BLACK);
         g16.setFont(new Font("Arial", 14, 14));

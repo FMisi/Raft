@@ -8,7 +8,7 @@ public class Keys implements KeyListener{
     
     private int capaint = 0;
     
-    private boolean[] keyDown = {false, false, false, false, false, false};
+    private boolean[] keyDown = {false, false, false, false, false, false, false};
     
     private static boolean halobool1 = false;
     private static boolean halobool2 = false;
@@ -22,6 +22,8 @@ public class Keys implements KeyListener{
     private static boolean halobool10 = false;
     private static boolean halobool11 = false;
     private static boolean halobool12 = false;
+    
+    private static boolean viztisztitobool1 = false;
     
     //<editor-fold defaultstate="collapsed" desc="halo koordinatak">
     public static int halox;
@@ -50,12 +52,19 @@ public class Keys implements KeyListener{
     public static int haloy12;
     //</editor-fold>
     
+    public static int viztisztitox;
+    public static int viztisztitoy;
+    
     private int haloszamlalo = 0;
+    private int viztisztitoszamlalo = 0;
     
     @Override
     public void keyPressed(KeyEvent arg1) {
         if(arg1.getKeyCode() == KeyEvent.VK_W){
             if(!keyDown[0]){
+                if(viztisztitobool1==true){
+                    Player.viztisztito_counter++;
+                }
                 Player.le += 19;
                 Handler.playerOne.tile.second--;
                 Handler.cselekvesek++;
@@ -86,6 +95,9 @@ public class Keys implements KeyListener{
         }
         if(arg1.getKeyCode() == KeyEvent.VK_A){
             if(!keyDown[1]){
+                if(viztisztitobool1==true){
+                    Player.viztisztito_counter++;
+                }
                 Player.le += 19;
                 Handler.playerOne.tile.first--;
                 Handler.cselekvesek++;
@@ -116,6 +128,9 @@ public class Keys implements KeyListener{
         }
         if(arg1.getKeyCode() == KeyEvent.VK_S){
             if(!keyDown[2]){
+                if(viztisztitobool1==true){
+                    Player.viztisztito_counter++;
+                }
                 Player.le += 19;
                 Handler.playerOne.tile.second++;
                 Handler.cselekvesek++;
@@ -146,6 +161,9 @@ public class Keys implements KeyListener{
         }
         if(arg1.getKeyCode() == KeyEvent.VK_D){
             if(!keyDown[3]){
+                if(viztisztitobool1==true){
+                    Player.viztisztito_counter++;
+                }
                 Player.le += 19;
                 Handler.playerOne.tile.first++;
                 Handler.cselekvesek++;
@@ -219,6 +237,9 @@ public class Keys implements KeyListener{
             System.out.println("Player.playerx= "+Player.playerx);
             System.out.println("Player.playery= "+Player.playery);
             if(!keyDown[4]){
+                if(viztisztitobool1==true){
+                    Player.viztisztito_counter++;
+                }
                 Random random = new Random();
                 int randint = random.nextInt(16)+1;
                 System.out.println(randint);
@@ -239,9 +260,9 @@ public class Keys implements KeyListener{
                 }
                 if((Player.playerx==Player.nemrandxd2
                         || Player.playerx==Player.nemrandxd2-20
-                        || Player.playerx==Player.nemrandxd2+20) && (Player.le2==Player.playery+38
-                        || (Player.le2==Player.playery+19)
-                        || (Player.le2==Player.playery))){
+                        || Player.playerx==Player.nemrandxd2+20) && (Player.le2==Player.playery+19
+                        || (Player.le2==Player.playery)
+                        || (Player.le2==Player.playery-19))){
                     if(Player.initd2==0){
                     Handler.deszka++;
                     }
@@ -249,9 +270,9 @@ public class Keys implements KeyListener{
                 }
                 if((Player.playerx==Player.nemrandxd3
                         || Player.playerx==Player.nemrandxd3-20
-                        || Player.playerx==Player.nemrandxd3+20) && (Player.le3==Player.playery+38
-                        || (Player.le3==Player.playery+19)
-                        || (Player.le3==Player.playery))){
+                        || Player.playerx==Player.nemrandxd3+20) && (Player.le3==Player.playery+19
+                        || (Player.le3==Player.playery)
+                        || (Player.le3==Player.playery-19))){
                     if(Player.initd3==0){
                     Handler.deszka++;
                     }
@@ -271,9 +292,9 @@ public class Keys implements KeyListener{
                 }
                 if((Player.playerx==Player.nemrandxl2
                         || Player.playerx==Player.nemrandxl2-20
-                        || Player.playerx==Player.nemrandxl2+20) && (Player.le2==Player.playery+38
-                        || (Player.le2==Player.playery+19)
-                        || (Player.le2==Player.playery))){
+                        || Player.playerx==Player.nemrandxl2+20) && (Player.le2==Player.playery+19
+                        || (Player.le2==Player.playery)
+                        || (Player.le2==Player.playery-19))){
                     if(Player.initl2==0){
                     Handler.level++;
                     }
@@ -281,9 +302,9 @@ public class Keys implements KeyListener{
                 }
                 if((Player.playerx==Player.nemrandxl3
                         || Player.playerx==Player.nemrandxl3-20
-                        || Player.playerx==Player.nemrandxl3+20) && (Player.le3==Player.playery+38
-                        || (Player.le3==Player.playery+19)
-                        || (Player.le3==Player.playery))){
+                        || Player.playerx==Player.nemrandxl3+20) && (Player.le3==Player.playery+19
+                        || (Player.le3==Player.playery)
+                        || (Player.le3==Player.playery-19))){
                     if(Player.initl3==0){
                     Handler.level++;
                     }
@@ -303,9 +324,9 @@ public class Keys implements KeyListener{
                 }
                 if((Player.playerx==Player.nemrandxh2
                         || Player.playerx==Player.nemrandxh2-20
-                        || Player.playerx==Player.nemrandxh2+20) && (Player.le2==Player.playery+38
-                        || (Player.le2==Player.playery+19)
-                        || (Player.le2==Player.playery))){
+                        || Player.playerx==Player.nemrandxh2+20) && (Player.le2==Player.playery+19
+                        || (Player.le2==Player.playery)
+                        || (Player.le2==Player.playery-19))){
                     if(Player.inith2==0){
                     Handler.hulladek++;
                     }
@@ -313,9 +334,9 @@ public class Keys implements KeyListener{
                 }
                 if((Player.playerx==Player.nemrandxh3
                         || Player.playerx==Player.nemrandxh3-20
-                        || Player.playerx==Player.nemrandxh3+20) && (Player.le3==Player.playery+38
-                        || (Player.le3==Player.playery+19)
-                        || (Player.le3==Player.playery))){
+                        || Player.playerx==Player.nemrandxh3+20) && (Player.le3==Player.playery+19
+                        || (Player.le3==Player.playery)
+                        || (Player.le3==Player.playery-19))){
                     if(Player.inith3==0){
                     Handler.hulladek++;
                     }
@@ -336,31 +357,31 @@ public class Keys implements KeyListener{
                                 Handler.deszka++;
                                 Handler.deszka++;
                                 Handler.deszka++;
-                                Handler.deszka++;
+                                Handler.burgonya++;
                                 break;
                             case 2:
                                 Handler.level++;
                                 Handler.level++;
                                 Handler.level++;
                                 Handler.level++;
-                                Handler.level++;
+                                Handler.burgonya++;
                                 break;
                             case 3:
                                 Handler.hulladek++;
                                 Handler.hulladek++;
                                 Handler.hulladek++;
                                 Handler.hulladek++;
-                                Handler.hulladek++;
+                                Handler.burgonya++;
                                 break;
                             case 4:
                                 Handler.deszka++;
                                 Handler.deszka++;
                                 Handler.level++;
                                 Handler.level++;
-                                Handler.level++;
+                                Handler.burgonya++;
                                 break;
                             case 5:
-                                Handler.deszka++;
+                                Handler.burgonya++;
                                 Handler.deszka++;
                                 Handler.deszka++;
                                 Handler.level++;
@@ -369,12 +390,12 @@ public class Keys implements KeyListener{
                             case 6:
                                 Handler.deszka++;
                                 Handler.deszka++;
-                                Handler.hulladek++;
+                                Handler.burgonya++;
                                 Handler.hulladek++;
                                 Handler.hulladek++;
                                 break;
                             case 7:
-                                Handler.deszka++;
+                                Handler.burgonya++;
                                 Handler.deszka++;
                                 Handler.deszka++;
                                 Handler.hulladek++;
@@ -384,25 +405,25 @@ public class Keys implements KeyListener{
                                 Handler.deszka++;
                                 Handler.level++;
                                 Handler.level++;
-                                Handler.level++;
+                                Handler.burgonya++;
                                 Handler.hulladek++;
                                 break;
                             case 9:
-                                Handler.deszka++;
+                                Handler.burgonya++;
                                 Handler.deszka++;
                                 Handler.level++;
                                 Handler.level++;
                                 Handler.hulladek++;
                                 break;
                             case 10:
-                                Handler.deszka++;
+                                Handler.burgonya++;
                                 Handler.deszka++;
                                 Handler.deszka++;
                                 Handler.level++;
                                 Handler.hulladek++;
                                 break;
                             case 11:
-                                Handler.level++;
+                                Handler.burgonya++;
                                 Handler.level++;
                                 Handler.level++;
                                 Handler.level++;
@@ -413,24 +434,24 @@ public class Keys implements KeyListener{
                                 Handler.deszka++;
                                 Handler.level++;
                                 Handler.hulladek++;
-                                Handler.hulladek++;
+                                Handler.burgonya++;
                                 break;
                             case 13:
                                 Handler.deszka++;
                                 Handler.level++;
                                 Handler.level++;
                                 Handler.level++;
-                                Handler.level++;
+                                Handler.burgonya++;
                                 break;
                             case 14:
                                 Handler.deszka++;
                                 Handler.hulladek++;
                                 Handler.hulladek++;
                                 Handler.hulladek++;
-                                Handler.hulladek++;
+                                Handler.burgonya++;
                                 break;
                             case 15:
-                                Handler.deszka++;
+                                Handler.burgonya++;
                                 Handler.deszka++;
                                 Handler.deszka++;
                                 Handler.deszka++;
@@ -441,7 +462,7 @@ public class Keys implements KeyListener{
                                 Handler.hulladek++;
                                 Handler.hulladek++;
                                 Handler.hulladek++;
-                                Handler.hulladek++;
+                                Handler.burgonya++;
                                 break;
                         }
                         Player.initho++;
@@ -451,9 +472,9 @@ public class Keys implements KeyListener{
                 
                 if((Player.playerx==Player.nemrandxho2
                         || Player.playerx==Player.nemrandxho2-20
-                        || Player.playerx==Player.nemrandxho2+20) && (Player.le2==Player.playery+38
-                        || (Player.le2==Player.playery+19)
-                        || (Player.le2==Player.playery))){
+                        || Player.playerx==Player.nemrandxho2+20) && (Player.le2==Player.playery+19
+                        || (Player.le2==Player.playery)
+                        || (Player.le2==Player.playery-19))){
                     //<editor-fold defaultstate="collapsed" desc="random hordos hokamoka">
                     if(Player.initho2==0){
                         switch(randint){
@@ -577,9 +598,9 @@ public class Keys implements KeyListener{
                 
                 if((Player.playerx==Player.nemrandxho3
                         || Player.playerx==Player.nemrandxho3-20
-                        || Player.playerx==Player.nemrandxho3+20) && (Player.le2==Player.playery+38
-                        || (Player.le2==Player.playery+19)
-                        || (Player.le2==Player.playery))){
+                        || Player.playerx==Player.nemrandxho3+20) && (Player.le2==Player.playery+19
+                        || (Player.le2==Player.playery)
+                        || (Player.le2==Player.playery-19))){
                     //<editor-fold defaultstate="collapsed" desc="random hordos hokamoka">
                     if(Player.initho3==0){
                         switch(randint){
@@ -696,7 +717,7 @@ public class Keys implements KeyListener{
                                 Handler.hulladek++;
                                 break;
                         }
-                        Player.initho2++;
+                        Player.initho3++;
                     }
                     //</editor-fold>
                 }
@@ -734,9 +755,13 @@ public class Keys implements KeyListener{
         
         if(arg1.getKeyCode() == KeyEvent.VK_5 || arg1.getKeyCode() == KeyEvent.VK_NUMPAD5){
              if(!keyDown[5]){
+                 if(viztisztitobool1==true){
+                    Player.viztisztito_counter++;
+                }
+                Handler.cselekvesek++; 
                 // Lerakhatja a jatekos a halot?
                 if((Handler.halo > 0)
-                /*&& ((Player.playerx==360 && Player.playery==266)
+                && ((Player.playerx==360 && Player.playery==266)
                 || (Player.playerx==380 && Player.playery==266)
                 || (Player.playerx==400 && Player.playery==266)
                 || (Player.playerx==420 && Player.playery==266)
@@ -747,7 +772,7 @@ public class Keys implements KeyListener{
                 || (Player.playerx==380 && Player.playery==323)
                 || (Player.playerx==360 && Player.playery==323)
                 || (Player.playerx==360 && Player.playery==304)
-                || (Player.playerx==360 && Player.playery==285))*/
+                || (Player.playerx==360 && Player.playery==285))
                 ){
                     if(haloszamlalo==0){
                         halox=Player.playerx;
@@ -838,6 +863,30 @@ public class Keys implements KeyListener{
              }
         }
         
+        if(arg1.getKeyCode() == KeyEvent.VK_4 || arg1.getKeyCode() == KeyEvent.VK_NUMPAD4){
+            if(!keyDown[6]){
+                if(viztisztitobool1==true){
+                    Player.viztisztito_counter++;
+                }
+                Handler.cselekvesek++;
+                // Lerakhatja a jatekos a viztisztitot?
+                if((Handler.viztisztito > 0)
+                   && ((Player.playerx==380 && Player.playery==285)
+                   || (Player.playerx==400 && Player.playery==285)
+                   || (Player.playerx==400 && Player.playery==304)
+                   || (Player.playerx==380 && Player.playery==304))){
+                    if(viztisztitoszamlalo==0){
+                        viztisztitox=Player.playerx;
+                        viztisztitoy=Player.playery;
+                        viztisztitoszamlalo++;
+                        viztisztitobool1=true;
+                        Handler.viztisztito--;
+                    }
+                }
+                keyDown[6] = true;
+            }
+        }
+        
     }
 
     @Override
@@ -859,6 +908,9 @@ public class Keys implements KeyListener{
         }
         if(arg1.getKeyCode() == KeyEvent.VK_5 || arg1.getKeyCode() == KeyEvent.VK_NUMPAD5){
             keyDown[5] = false;
+        }
+        if(arg1.getKeyCode() == KeyEvent.VK_4 || arg1.getKeyCode() == KeyEvent.VK_NUMPAD4){
+            keyDown[6] = false;
         }
     }
     
@@ -902,7 +954,9 @@ public class Keys implements KeyListener{
         return halobool12;
     }
     
-    
+    public static boolean isViztisztitobool1(){
+        return viztisztitobool1;
+    }
     
 }
 

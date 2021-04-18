@@ -128,6 +128,8 @@ public class Player extends JPanel{
     
     static boolean vesztettelBool = false;
     
+    public static int viztisztito_counter = 0;
+    
     public Player(Color c, int x, int y){
         tile.first = x;
         tile.second = y;
@@ -168,11 +170,15 @@ public class Player extends JPanel{
         ImageIcon hordo = new ImageIcon("assets\\hordo.png");
         ImageIcon halo = new ImageIcon("assets\\halo.png");
         ImageIcon viztisztito = new ImageIcon("assets\\viztisztito.png");
-        //g.drawLine((tile.first *20) + 1, (tile.second * 19) + 1, 20, 19);
+        ImageIcon viztisztitotele = new ImageIcon("assets\\viztisztitotele.png");
+        // g.drawLine((tile.first *20) + 1, (tile.second * 19) + 1, 20, 19);
         // (tile.first *20)-nal +-20-at jelent egy tile-nyi terulet
         // (tile.second *19)-nal +-19-at jelent egy tile-nyi terulet
         karakterunk.paintIcon(this, g, playerx, playery);
         capa.paintIcon(this, g, capax, capay);
+        
+        //<editor-fold defaultstate="collapsed" desc="halo megjelenik vagy sem">
+        
         if(Keys.isHalobool1()==true){
             halo.paintIcon(this, g, Keys.halox, Keys.haloy);
         }
@@ -208,6 +214,20 @@ public class Player extends JPanel{
         }
         if(Keys.isHalobool12()==true){
             halo.paintIcon(this, g, Keys.halox12, Keys.haloy12);
+        }
+        
+        //</editor-fold>
+
+        if(Keys.isViztisztitobool1()==true){
+            if(viztisztito_counter < 25){
+                viztisztito.paintIcon(this, g, Keys.viztisztitox, Keys.viztisztitoy);
+            } else {
+                viztisztitotele.paintIcon(this, g, Keys.viztisztitox, Keys.viztisztitoy);
+                if(playerx==Keys.viztisztitox && playery==Keys.viztisztitoy){
+                    Handler.szomjusag+=40;
+                    viztisztito_counter=0;
+                }
+            }
         }
         
         // Megol a capa? KEZDETE
@@ -413,6 +433,272 @@ public class Player extends JPanel{
             Handler.hulladek++;
         }
         
+        // halo #6
+        if(Keys.halox6==randxd && Keys.haloy6==le && initd==0){
+            initd++;
+            Handler.deszka++;
+        }
+        if(Keys.halox6==randxd2 && Keys.haloy6==le2 && initd2==0){
+            initd2++;
+            Handler.deszka++;
+        }
+        if(Keys.halox6==randxd3 && Keys.haloy6==le3 && initd3==0){
+            initd3++;
+            Handler.deszka++;
+        }
+        if(Keys.halox6==randxl && Keys.haloy6==le && initl==0){
+            initl++;
+            Handler.level++;
+        }
+        if(Keys.halox6==randxl2 && Keys.haloy6==le2 && initl2==0){
+            initl2++;
+            Handler.level++;
+        }
+        if(Keys.halox6==randxl3 && Keys.haloy6==le3 && inith3==0){
+            initl3++;
+            Handler.level++;
+        }
+        if(Keys.halox6==randxh && Keys.haloy6==le && inith==0){
+            inith++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox6==randxh2 && Keys.haloy6==le2 && inith2==0){
+            inith2++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox6==randxh3 && Keys.haloy6==le3 && inith3==0){
+            inith3++;
+            Handler.hulladek++;
+        }
+        
+        // halo #7
+        if(Keys.halox7==randxd && Keys.haloy7==le && initd==0){
+            initd++;
+            Handler.deszka++;
+        }
+        if(Keys.halox7==randxd2 && Keys.haloy7==le2 && initd2==0){
+            initd2++;
+            Handler.deszka++;
+        }
+        if(Keys.halox7==randxd3 && Keys.haloy7==le3 && initd3==0){
+            initd3++;
+            Handler.deszka++;
+        }
+        if(Keys.halox7==randxl && Keys.haloy7==le && initl==0){
+            initl++;
+            Handler.level++;
+        }
+        if(Keys.halox7==randxl2 && Keys.haloy7==le2 && initl2==0){
+            initl2++;
+            Handler.level++;
+        }
+        if(Keys.halox7==randxl3 && Keys.haloy7==le3 && inith3==0){
+            initl3++;
+            Handler.level++;
+        }
+        if(Keys.halox7==randxh && Keys.haloy7==le && inith==0){
+            inith++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox7==randxh2 && Keys.haloy7==le2 && inith2==0){
+            inith2++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox7==randxh3 && Keys.haloy7==le3 && inith3==0){
+            inith3++;
+            Handler.hulladek++;
+        }
+        
+        // halo #8
+        if(Keys.halox8==randxd && Keys.haloy8==le && initd==0){
+            initd++;
+            Handler.deszka++;
+        }
+        if(Keys.halox8==randxd2 && Keys.haloy8==le2 && initd2==0){
+            initd2++;
+            Handler.deszka++;
+        }
+        if(Keys.halox8==randxd3 && Keys.haloy8==le3 && initd3==0){
+            initd3++;
+            Handler.deszka++;
+        }
+        if(Keys.halox8==randxl && Keys.haloy8==le && initl==0){
+            initl++;
+            Handler.level++;
+        }
+        if(Keys.halox8==randxl2 && Keys.haloy8==le2 && initl2==0){
+            initl2++;
+            Handler.level++;
+        }
+        if(Keys.halox8==randxl3 && Keys.haloy8==le3 && inith3==0){
+            initl3++;
+            Handler.level++;
+        }
+        if(Keys.halox8==randxh && Keys.haloy8==le && inith==0){
+            inith++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox8==randxh2 && Keys.haloy8==le2 && inith2==0){
+            inith2++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox8==randxh3 && Keys.haloy8==le3 && inith3==0){
+            inith3++;
+            Handler.hulladek++;
+        }
+        
+        // halo #9
+        if(Keys.halox9==randxd && Keys.haloy9==le && initd==0){
+            initd++;
+            Handler.deszka++;
+        }
+        if(Keys.halox9==randxd2 && Keys.haloy9==le2 && initd2==0){
+            initd2++;
+            Handler.deszka++;
+        }
+        if(Keys.halox9==randxd3 && Keys.haloy9==le3 && initd3==0){
+            initd3++;
+            Handler.deszka++;
+        }
+        if(Keys.halox9==randxl && Keys.haloy9==le && initl==0){
+            initl++;
+            Handler.level++;
+        }
+        if(Keys.halox9==randxl2 && Keys.haloy9==le2 && initl2==0){
+            initl2++;
+            Handler.level++;
+        }
+        if(Keys.halox9==randxl3 && Keys.haloy9==le3 && inith3==0){
+            initl3++;
+            Handler.level++;
+        }
+        if(Keys.halox9==randxh && Keys.haloy9==le && inith==0){
+            inith++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox9==randxh2 && Keys.haloy9==le2 && inith2==0){
+            inith2++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox9==randxh3 && Keys.haloy9==le3 && inith3==0){
+            inith3++;
+            Handler.hulladek++;
+        }
+        
+        // halo #10
+        if(Keys.halox10==randxd && Keys.haloy10==le && initd==0){
+            initd++;
+            Handler.deszka++;
+        }
+        if(Keys.halox10==randxd2 && Keys.haloy10==le2 && initd2==0){
+            initd2++;
+            Handler.deszka++;
+        }
+        if(Keys.halox10==randxd3 && Keys.haloy10==le3 && initd3==0){
+            initd3++;
+            Handler.deszka++;
+        }
+        if(Keys.halox10==randxl && Keys.haloy10==le && initl==0){
+            initl++;
+            Handler.level++;
+        }
+        if(Keys.halox10==randxl2 && Keys.haloy10==le2 && initl2==0){
+            initl2++;
+            Handler.level++;
+        }
+        if(Keys.halox10==randxl3 && Keys.haloy10==le3 && inith3==0){
+            initl3++;
+            Handler.level++;
+        }
+        if(Keys.halox10==randxh && Keys.haloy10==le && inith==0){
+            inith++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox10==randxh2 && Keys.haloy10==le2 && inith2==0){
+            inith2++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox10==randxh3 && Keys.haloy10==le3 && inith3==0){
+            inith3++;
+            Handler.hulladek++;
+        }
+        
+        // halo #11
+        if(Keys.halox11==randxd && Keys.haloy11==le && initd==0){
+            initd++;
+            Handler.deszka++;
+        }
+        if(Keys.halox11==randxd2 && Keys.haloy11==le2 && initd2==0){
+            initd2++;
+            Handler.deszka++;
+        }
+        if(Keys.halox11==randxd3 && Keys.haloy11==le3 && initd3==0){
+            initd3++;
+            Handler.deszka++;
+        }
+        if(Keys.halox11==randxl && Keys.haloy11==le && initl==0){
+            initl++;
+            Handler.level++;
+        }
+        if(Keys.halox11==randxl2 && Keys.haloy11==le2 && initl2==0){
+            initl2++;
+            Handler.level++;
+        }
+        if(Keys.halox11==randxl3 && Keys.haloy11==le3 && inith3==0){
+            initl3++;
+            Handler.level++;
+        }
+        if(Keys.halox11==randxh && Keys.haloy11==le && inith==0){
+            inith++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox11==randxh2 && Keys.haloy11==le2 && inith2==0){
+            inith2++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox11==randxh3 && Keys.haloy11==le3 && inith3==0){
+            inith3++;
+            Handler.hulladek++;
+        }
+        
+        // halo #12
+        if(Keys.halox12==randxd && Keys.haloy12==le && initd==0){
+            initd++;
+            Handler.deszka++;
+        }
+        if(Keys.halox12==randxd2 && Keys.haloy12==le2 && initd2==0){
+            initd2++;
+            Handler.deszka++;
+        }
+        if(Keys.halox12==randxd3 && Keys.haloy12==le3 && initd3==0){
+            initd3++;
+            Handler.deszka++;
+        }
+        if(Keys.halox12==randxl && Keys.haloy12==le && initl==0){
+            initl++;
+            Handler.level++;
+        }
+        if(Keys.halox12==randxl2 && Keys.haloy12==le2 && initl2==0){
+            initl2++;
+            Handler.level++;
+        }
+        if(Keys.halox12==randxl3 && Keys.haloy12==le3 && inith3==0){
+            initl3++;
+            Handler.level++;
+        }
+        if(Keys.halox12==randxh && Keys.haloy12==le && inith==0){
+            inith++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox12==randxh2 && Keys.haloy12==le2 && inith2==0){
+            inith2++;
+            Handler.hulladek++;
+        }
+        if(Keys.halox12==randxh3 && Keys.haloy12==le3 && inith3==0){
+            inith3++;
+            Handler.hulladek++;
+        }
+        
         //</editor-fold>
         
         int csk = Handler.cselekvesek;
@@ -560,7 +846,5 @@ public class Player extends JPanel{
     public static int getPlayery() {
         return playery;
     }
-    
-    
     
 }
