@@ -1,6 +1,8 @@
 package raft;
 
 import gameObjects.Player;
+import static gameObjects.Player.playerx;
+import static gameObjects.Player.playery;
 import java.util.Random;
 import java.awt.event.*;
 
@@ -8,7 +10,7 @@ public class Keys implements KeyListener{
     
     private int capaint = 0;
     
-    private boolean[] keyDown = {false, false, false, false, false, false, false};
+    private boolean[] keyDown = {false, false, false, false, false, false, false, false};
     
     private static boolean halobool1 = false;
     private static boolean halobool2 = false;
@@ -27,6 +29,11 @@ public class Keys implements KeyListener{
     private static boolean viztisztitobool2 = false;
     private static boolean viztisztitobool3 = false;
     private static boolean viztisztitobool4 = false;
+    
+    private static boolean tuzhelybool1 = false;
+    private static boolean tuzhelybool2 = false;
+    private static boolean tuzhelybool3 = false;
+    private static boolean tuzhelybool4 = false;
     
     //<editor-fold defaultstate="collapsed" desc="halo koordinatak">
     public static int halox;
@@ -55,6 +62,7 @@ public class Keys implements KeyListener{
     public static int haloy12;
     //</editor-fold>
     
+    //<editor-fold defaultstate="collapsed" desc="viztisztito koordinatak">
     public static int viztisztitox;
     public static int viztisztitoy;
     public static int viztisztitox2;
@@ -63,9 +71,25 @@ public class Keys implements KeyListener{
     public static int viztisztitoy3;
     public static int viztisztitox4;
     public static int viztisztitoy4;
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="tuzhely koordinatak">
+    public static int tuzhelyx;
+    public static int tuzhelyy;
+    public static int tuzhelyx2;
+    public static int tuzhelyy2;
+    public static int tuzhelyx3;
+    public static int tuzhelyy3;
+    public static int tuzhelyx4;
+    public static int tuzhelyy4;
+    //</editor-fold>
     
     private int haloszamlalo = 0;
+    
     private int viztisztitoszamlalo = 0;
+    
+    private int tuzhelyszamlalo = 0;
+    public static boolean[] ravanteve = {false, false, false, false};
     
     @Override
     public void keyPressed(KeyEvent arg1) {
@@ -85,6 +109,21 @@ public class Keys implements KeyListener{
                     Player.viztisztito_counter4++;
                 }
                 // Viztisztito counterek kezelese VEGE
+                
+                // Tuzhely counterek kezelese KEZDETE
+                if(tuzhelybool1==true && ravanteve[0]==true){
+                    Player.tuzhely_counter++;
+                }
+                if(tuzhelybool2==true && ravanteve[1]==true){
+                    Player.tuzhely_counter2++;
+                }
+                if(tuzhelybool3==true && ravanteve[2]==true){
+                    Player.tuzhely_counter3++;
+                }
+                if(tuzhelybool4==true && ravanteve[3]==true){
+                    Player.tuzhely_counter4++;
+                }
+                // Tuzhely counterek kezelese VEGE
 
                 Player.le += 19;
                 Handler.playerOne.tile.second--;
@@ -113,6 +152,21 @@ public class Keys implements KeyListener{
                     Player.viztisztito_counter4++;
                 }
                 // Viztisztito counterek kezelese VEGE
+                
+                // Tuzhely counterek kezelese KEZDETE
+                if(tuzhelybool1==true && ravanteve[0]==true){
+                    Player.tuzhely_counter++;
+                }
+                if(tuzhelybool2==true && ravanteve[1]==true){
+                    Player.tuzhely_counter2++;
+                }
+                if(tuzhelybool3==true && ravanteve[2]==true){
+                    Player.tuzhely_counter3++;
+                }
+                if(tuzhelybool4==true && ravanteve[3]==true){
+                    Player.tuzhely_counter4++;
+                }
+                // Tuzhely counterek kezelese VEGE
 
                 Player.le += 19;
                 Handler.playerOne.tile.first--;
@@ -141,6 +195,21 @@ public class Keys implements KeyListener{
                     Player.viztisztito_counter4++;
                 }
                 // Viztisztito counterek kezelese VEGE
+                
+                // Tuzhely counterek kezelese KEZDETE
+                if(tuzhelybool1==true && ravanteve[0]==true){
+                    Player.tuzhely_counter++;
+                }
+                if(tuzhelybool2==true && ravanteve[1]==true){
+                    Player.tuzhely_counter2++;
+                }
+                if(tuzhelybool3==true && ravanteve[2]==true){
+                    Player.tuzhely_counter3++;
+                }
+                if(tuzhelybool4==true && ravanteve[3]==true){
+                    Player.tuzhely_counter4++;
+                }
+                // Tuzhely counterek kezelese VEGE
 
                 Player.le += 19;
                 Handler.playerOne.tile.second++;
@@ -155,9 +224,36 @@ public class Keys implements KeyListener{
         }
         if(arg1.getKeyCode() == KeyEvent.VK_D){
             if(!keyDown[3]){
+                // Viztisztito counterek kezelese KEZDETE
                 if(viztisztitobool1==true){
                     Player.viztisztito_counter++;
                 }
+                if(viztisztitobool2==true){
+                    Player.viztisztito_counter2++;
+                }
+                if(viztisztitobool3==true){
+                    Player.viztisztito_counter3++;
+                }
+                if(viztisztitobool4==true){
+                    Player.viztisztito_counter4++;
+                }
+                // Viztisztito counterek kezelese VEGE
+                
+                // Tuzhely counterek kezelese KEZDETE
+                if(tuzhelybool1==true && ravanteve[0]==true){
+                    Player.tuzhely_counter++;
+                }
+                if(tuzhelybool2==true && ravanteve[1]==true){
+                    Player.tuzhely_counter2++;
+                }
+                if(tuzhelybool3==true && ravanteve[2]==true){
+                    Player.tuzhely_counter3++;
+                }
+                if(tuzhelybool4==true && ravanteve[3]==true){
+                    Player.tuzhely_counter4++;
+                }
+                // Tuzhely counterek kezelese VEGE
+                
                 Player.le += 19;
                 Handler.playerOne.tile.first++;
                 Handler.cselekvesek++;
@@ -228,10 +324,41 @@ public class Keys implements KeyListener{
                     Player.viztisztito_counter4++;
                 }
                 // Viztisztito counterek kezelese VEGE
+                
+                // Tuzhely counterek kezelese KEZDETE
+                if(tuzhelybool1==true && ravanteve[0]==true){
+                    Player.tuzhely_counter++;
+                }
+                if(tuzhelybool2==true && ravanteve[1]==true){
+                    Player.tuzhely_counter2++;
+                }
+                if(tuzhelybool3==true && ravanteve[2]==true){
+                    Player.tuzhely_counter3++;
+                }
+                if(tuzhelybool4==true && ravanteve[3]==true){
+                    Player.tuzhely_counter4++;
+                }
+                // Tuzhely counterek kezelese VEGE
+                
+                if(playerx==Keys.tuzhelyx && playery==Keys.tuzhelyy && ravanteve[0]==false && Handler.hal > 0){
+                    ravanteve[0]=true;
+                    Handler.hal--;
+                }
+                else if(playerx==Keys.tuzhelyx2 && playery==Keys.tuzhelyy2 && ravanteve[1]==false && Handler.hal > 0){
+                    ravanteve[1]=true;
+                    Handler.hal--;
+                }
+                else if(playerx==Keys.tuzhelyx3 && playery==Keys.tuzhelyy3 && ravanteve[2]==false && Handler.hal > 0){
+                    ravanteve[2]=true;
+                    Handler.hal--;
+                }
+                else if(playerx==Keys.tuzhelyx4 && playery==Keys.tuzhelyy4 && ravanteve[3]==false && Handler.hal > 0){
+                    ravanteve[3]=true;
+                    Handler.hal--;
+                }
 
                 Random random = new Random();
                 int randint = random.nextInt(16)+1;
-                System.out.println(randint);
                 
                 Player.le += 19;
                 
@@ -587,9 +714,9 @@ public class Keys implements KeyListener{
                 
                 if((Player.playerx==Player.nemrandxho3
                         || Player.playerx==Player.nemrandxho3-20
-                        || Player.playerx==Player.nemrandxho3+20) && (Player.le2==Player.playery+19
-                        || (Player.le2==Player.playery)
-                        || (Player.le2==Player.playery-19))){
+                        || Player.playerx==Player.nemrandxho3+20) && (Player.le3==Player.playery+19
+                        || (Player.le3==Player.playery)
+                        || (Player.le3==Player.playery-19))){
                     //<editor-fold defaultstate="collapsed" desc="random hordos hokamoka">
                     if(Player.initho3==0){
                         switch(randint){
@@ -741,6 +868,21 @@ public class Keys implements KeyListener{
                     Player.viztisztito_counter4++;
                 }
                 // Viztisztito counterek kezelese VEGE
+                
+                // Tuzhely counterek kezelese KEZDETE
+                if(tuzhelybool1==true && ravanteve[0]==true){
+                    Player.tuzhely_counter++;
+                }
+                if(tuzhelybool2==true && ravanteve[1]==true){
+                    Player.tuzhely_counter2++;
+                }
+                if(tuzhelybool3==true && ravanteve[2]==true){
+                    Player.tuzhely_counter3++;
+                }
+                if(tuzhelybool4==true && ravanteve[3]==true){
+                    Player.tuzhely_counter4++;
+                }
+                // Tuzhely counterek kezelese VEGE
 
                 // Lerakhatja a jatekos a halot?
                 if((Handler.halo > 0)
@@ -866,6 +1008,21 @@ public class Keys implements KeyListener{
                     Player.viztisztito_counter4++;
                 }
                 // Viztisztito counterek kezelese VEGE
+                
+                // Tuzhely counterek kezelese KEZDETE
+                if(tuzhelybool1==true && ravanteve[0]==true){
+                    Player.tuzhely_counter++;
+                }
+                if(tuzhelybool2==true && ravanteve[1]==true){
+                    Player.tuzhely_counter2++;
+                }
+                if(tuzhelybool3==true && ravanteve[2]==true){
+                    Player.tuzhely_counter3++;
+                }
+                if(tuzhelybool4==true && ravanteve[3]==true){
+                    Player.tuzhely_counter4++;
+                }
+                // Tuzhely counterek kezelese VEGE
 
                 // Lerakhatja a jatekos a viztisztitot?
                 if((Handler.viztisztito > 0)
@@ -910,6 +1067,80 @@ public class Keys implements KeyListener{
             }
         }
         
+       if(arg1.getKeyCode() == KeyEvent.VK_3 || arg1.getKeyCode() == KeyEvent.VK_NUMPAD3){
+            if(!keyDown[7]){
+                // Viztisztito counterek kezelese KEZDETE
+                if(viztisztitobool1==true){
+                    Player.viztisztito_counter++;
+                }
+                if(viztisztitobool2==true){
+                    Player.viztisztito_counter2++;
+                }
+                if(viztisztitobool3==true){
+                    Player.viztisztito_counter3++;
+                }
+                if(viztisztitobool4==true){
+                    Player.viztisztito_counter4++;
+                }
+                // Viztisztito counterek kezelese VEGE
+                
+                // Tuzhely counterek kezelese KEZDETE
+                if(tuzhelybool1==true && ravanteve[0]==true){
+                    Player.tuzhely_counter++;
+                }
+                if(tuzhelybool2==true && ravanteve[1]==true){
+                    Player.tuzhely_counter2++;
+                }
+                if(tuzhelybool3==true && ravanteve[2]==true){
+                    Player.tuzhely_counter3++;
+                }
+                if(tuzhelybool4==true && ravanteve[3]==true){
+                    Player.tuzhely_counter4++;
+                }
+                // Tuzhely counterek kezelese VEGE
+                
+                // Lerakhatja a jatekos a tuzhelyet?
+                if((Handler.tuzhely > 0)
+                   && ((Player.playerx==380 && Player.playery==285)
+                   || (Player.playerx==400 && Player.playery==285)
+                   || (Player.playerx==400 && Player.playery==304)
+                   || (Player.playerx==380 && Player.playery==304))){
+                    switch (tuzhelyszamlalo) {
+                        case 0:
+                            tuzhelyx=Player.playerx;
+                            tuzhelyy=Player.playery;
+                            tuzhelyszamlalo++;
+                            tuzhelybool1=true;
+                            Handler.tuzhely--;
+                            break;
+                        case 1:
+                            tuzhelyx2=Player.playerx;
+                            tuzhelyy2=Player.playery;
+                            tuzhelyszamlalo++;
+                            tuzhelybool2=true;
+                            Handler.tuzhely--;
+                            break;
+                        case 2:
+                            tuzhelyx3=Player.playerx;
+                            tuzhelyy3=Player.playery;
+                            tuzhelyszamlalo++;
+                            tuzhelybool3=true;
+                            Handler.tuzhely--;
+                            break;
+                        case 3:
+                            tuzhelyx4=Player.playerx;
+                            tuzhelyy4=Player.playery;
+                            tuzhelyszamlalo++;
+                            tuzhelybool4=true;
+                            Handler.tuzhely--;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                keyDown[7] = true;
+            }
+       } 
     }
 
     @Override
@@ -934,6 +1165,9 @@ public class Keys implements KeyListener{
         }
         if(arg1.getKeyCode() == KeyEvent.VK_4 || arg1.getKeyCode() == KeyEvent.VK_NUMPAD4){
             keyDown[6] = false;
+        }
+        if(arg1.getKeyCode() == KeyEvent.VK_3 || arg1.getKeyCode() == KeyEvent.VK_NUMPAD3){
+            keyDown[7] = false;
         }
     }
     
@@ -1010,7 +1244,20 @@ public class Keys implements KeyListener{
     public static boolean isViztisztitobool4(){
         return viztisztitobool4;
     }
-    
-}
 
-    
+    public static boolean isTuzhelybool1() {
+        return tuzhelybool1;
+    }
+
+    public static boolean isTuzhelybool2() {
+        return tuzhelybool2;
+    }
+
+    public static boolean isTuzhelybool3() {
+        return tuzhelybool3;
+    }
+
+    public static boolean isTuzhelybool4() {
+        return tuzhelybool4;
+    }
+}

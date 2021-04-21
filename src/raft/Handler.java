@@ -9,7 +9,7 @@ public class Handler {
     public static Player playerOne = new Player(Color.WHITE, 19, 15);
     
     // szamlalok
-    public static int cselekvesek = 0;
+    public static int cselekvesek = 990;
     public static int ehseg = 100;
     public static int szomjusag = 100;
     public static int deszka = 930;
@@ -23,11 +23,18 @@ public class Handler {
     public static int viztisztito = 0;
     public static int halo = 0;
     public static int burgonya = 0;
-    public static int hal = 0;
+    public static int hal = 40;
     
     public static boolean winbool = false;
     
     public static void tick(){
+        if(ehseg>100){
+            ehseg=100;
+        }
+        if(szomjusag>100){
+            szomjusag=100;
+        }
+        
         if(cselekvesek==1000 || cselekvesek > 1000){
             Window.clip.stop();
             Window.clip2.start();
@@ -70,10 +77,12 @@ public class Handler {
         // hal
         Graphics2D g16 = (Graphics2D)g;  
         
-        g2.setFont(new Font("Arial", 14, 14));
+        g2.setFont(new Font("Arial", 38, 14));
         g2.drawString("Cselekvések: "+cselekvesek + "", 7, 14);
         g3.setFont(new Font("Arial", 38, 38));
+        
         if(cselekvesek>=1000){
+            cselekvesek=1000;
             winbool=true;
             ehseg=100;
             szomjusag=100;

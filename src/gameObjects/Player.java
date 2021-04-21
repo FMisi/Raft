@@ -133,6 +133,11 @@ public class Player extends JPanel{
     public static int viztisztito_counter3 = 0;
     public static int viztisztito_counter4 = 0;
     
+    public static int tuzhely_counter = 0;
+    public static int tuzhely_counter2 = 0;
+    public static int tuzhely_counter3 = 0;
+    public static int tuzhely_counter4 = 0;
+    
     public Player(Color c, int x, int y){
         tile.first = x;
         tile.second = y;
@@ -174,6 +179,8 @@ public class Player extends JPanel{
         ImageIcon halo = new ImageIcon("assets\\halo.png");
         ImageIcon viztisztito = new ImageIcon("assets\\viztisztito.png");
         ImageIcon viztisztitotele = new ImageIcon("assets\\viztisztitotele.png");
+        ImageIcon tuzhely = new ImageIcon("assets\\tuzhely.png");
+        ImageIcon tuzhelytele = new ImageIcon("assets\\tuzhelytele.png");
         // g.drawLine((tile.first *20) + 1, (tile.second * 19) + 1, 20, 19);
         // (tile.first *20)-nal +-20-at jelent egy tile-nyi terulet
         // (tile.second *19)-nal +-19-at jelent egy tile-nyi terulet
@@ -271,6 +278,57 @@ public class Player extends JPanel{
             }
         }
         
+        //</editor-fold>
+        
+        //<editor-fold defaultstate="collapsed" desc="tuzhely megjelenik vagy sem">
+        if(Keys.isTuzhelybool1()==true){
+            if(tuzhely_counter < 25){
+                tuzhely.paintIcon(this, g, Keys.tuzhelyx, Keys.tuzhelyy);
+            } else {
+                tuzhelytele.paintIcon(this, g, Keys.tuzhelyx, Keys.tuzhelyy);
+                if(playerx==Keys.tuzhelyx && playery==Keys.tuzhelyy){
+                    Handler.ehseg+=60;
+                    tuzhely_counter=0;
+                    Keys.ravanteve[0]=false;
+                }
+            }
+        }
+        if(Keys.isTuzhelybool2()==true){
+            if(tuzhely_counter2 < 25){
+                tuzhely.paintIcon(this, g, Keys.tuzhelyx2, Keys.tuzhelyy2);
+            } else {
+                tuzhelytele.paintIcon(this, g, Keys.tuzhelyx2, Keys.tuzhelyy2);
+                if(playerx==Keys.tuzhelyx2 && playery==Keys.tuzhelyy2){
+                    Handler.ehseg+=60;
+                    tuzhely_counter2=0;
+                    Keys.ravanteve[1]=false;
+                }
+            }
+        }
+        if(Keys.isTuzhelybool3()==true){
+            if(tuzhely_counter3 < 25){
+                tuzhely.paintIcon(this, g, Keys.tuzhelyx3, Keys.tuzhelyy3);
+            } else {
+                tuzhelytele.paintIcon(this, g, Keys.tuzhelyx3, Keys.tuzhelyy3);
+                if(playerx==Keys.tuzhelyx3 && playery==Keys.tuzhelyy3){
+                    Handler.ehseg+=60;
+                    tuzhely_counter3=0;
+                    Keys.ravanteve[2]=false;
+                }
+            }
+        }
+        if(Keys.isTuzhelybool4()==true){
+            if(tuzhely_counter4 < 25){
+                tuzhely.paintIcon(this, g, Keys.tuzhelyx4, Keys.tuzhelyy4);
+            } else {
+                tuzhelytele.paintIcon(this, g, Keys.tuzhelyx4, Keys.tuzhelyy4);
+                if(playerx==Keys.tuzhelyx4 && playery==Keys.tuzhelyy4){
+                    Handler.ehseg+=60;
+                    tuzhely_counter4=0;
+                    Keys.ravanteve[3]=false;
+                }
+            }
+        }
         //</editor-fold>
         
         // Megol a capa? KEZDETE
