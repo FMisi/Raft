@@ -24,6 +24,9 @@ public class Keys implements KeyListener{
     private static boolean halobool12 = false;
     
     private static boolean viztisztitobool1 = false;
+    private static boolean viztisztitobool2 = false;
+    private static boolean viztisztitobool3 = false;
+    private static boolean viztisztitobool4 = false;
     
     //<editor-fold defaultstate="collapsed" desc="halo koordinatak">
     public static int halox;
@@ -54,6 +57,12 @@ public class Keys implements KeyListener{
     
     public static int viztisztitox;
     public static int viztisztitoy;
+    public static int viztisztitox2;
+    public static int viztisztitoy2;
+    public static int viztisztitox3;
+    public static int viztisztitoy3;
+    public static int viztisztitox4;
+    public static int viztisztitoy4;
     
     private int haloszamlalo = 0;
     private int viztisztitoszamlalo = 0;
@@ -62,99 +71,84 @@ public class Keys implements KeyListener{
     public void keyPressed(KeyEvent arg1) {
         if(arg1.getKeyCode() == KeyEvent.VK_W){
             if(!keyDown[0]){
+                // Viztisztito counterek kezelese KEZDETE
                 if(viztisztitobool1==true){
                     Player.viztisztito_counter++;
                 }
+                if(viztisztitobool2==true){
+                    Player.viztisztito_counter2++;
+                }
+                if(viztisztitobool3==true){
+                    Player.viztisztito_counter3++;
+                }
+                if(viztisztitobool4==true){
+                    Player.viztisztito_counter4++;
+                }
+                // Viztisztito counterek kezelese VEGE
+
                 Player.le += 19;
                 Handler.playerOne.tile.second--;
                 Handler.cselekvesek++;
                 Handler.ehseg--;
                 Handler.szomjusag--; 
                 // capa korkorosen mozog KEZDETE
-                capaint++;
-                if(capaint>7){
-                    Player.cy-=1;
-                    if(capaint>14){
-                        Player.cy+=1;
-                        Player.cx-=1;
-                        if(capaint>21){
-                            Player.cx+=1;
-                            Player.cy+=1;
-                            if(capaint>27){
-                                capaint=0;
-                            }
-                            
-                        }
-                    }
-                } else{
-                    Player.cx+=1;
-                }
+                capamozog();
                 // capa korkorosen mozog VEGE
                 keyDown[0] = true;
             }
         }
         if(arg1.getKeyCode() == KeyEvent.VK_A){
             if(!keyDown[1]){
+                // Viztisztito counterek kezelese KEZDETE
                 if(viztisztitobool1==true){
                     Player.viztisztito_counter++;
                 }
+                if(viztisztitobool2==true){
+                    Player.viztisztito_counter2++;
+                }
+                if(viztisztitobool3==true){
+                    Player.viztisztito_counter3++;
+                }
+                if(viztisztitobool4==true){
+                    Player.viztisztito_counter4++;
+                }
+                // Viztisztito counterek kezelese VEGE
+
                 Player.le += 19;
                 Handler.playerOne.tile.first--;
                 Handler.cselekvesek++;
                 Handler.ehseg--;
                 Handler.szomjusag--;
                 // capa korkorosen mozog KEZDETE
-                capaint++;
-                if(capaint>7){
-                    Player.cy-=1;
-                    if(capaint>14){
-                        Player.cy+=1;
-                        Player.cx-=1;
-                        if(capaint>21){
-                            Player.cx+=1;
-                            Player.cy+=1;
-                            if(capaint>27){
-                                capaint=0;
-                            }
-                            
-                        }
-                    }
-                } else{
-                    Player.cx+=1;
-                }
+                capamozog();
                 // capa korkorosen mozog VEGE
                 keyDown[1] = true;
             }
         }
         if(arg1.getKeyCode() == KeyEvent.VK_S){
             if(!keyDown[2]){
+                // Viztisztito counterek kezelese KEZDETE
                 if(viztisztitobool1==true){
                     Player.viztisztito_counter++;
                 }
+                if(viztisztitobool2==true){
+                    Player.viztisztito_counter2++;
+                }
+                if(viztisztitobool3==true){
+                    Player.viztisztito_counter3++;
+                }
+                if(viztisztitobool4==true){
+                    Player.viztisztito_counter4++;
+                }
+                // Viztisztito counterek kezelese VEGE
+
                 Player.le += 19;
                 Handler.playerOne.tile.second++;
                 Handler.cselekvesek++;
                 Handler.ehseg--;
                 Handler.szomjusag--;
                 // capa korkorosen mozog KEZDETE
-                capaint++;
-                if(capaint>7){
-                    Player.cy-=1;
-                    if(capaint>14){
-                        Player.cy+=1;
-                        Player.cx-=1;
-                        if(capaint>21){
-                            Player.cx+=1;
-                            Player.cy+=1;
-                            if(capaint>27){
-                                capaint=0;
-                            }
-                            
-                        }
-                    }
-                } else{
-                    Player.cx+=1;
-                }
+                capamozog();
                 // capa korkorosen mozog VEGE
                 keyDown[2] = true;
             }
@@ -170,24 +164,7 @@ public class Keys implements KeyListener{
                 Handler.ehseg--;
                 Handler.szomjusag--;
                 // capa korkorosen mozog KEZDETE
-                capaint++;
-                if(capaint>7){
-                    Player.cy-=1;
-                    if(capaint>14){
-                        Player.cy+=1;
-                        Player.cx-=1;
-                        if(capaint>21){
-                            Player.cx+=1;
-                            Player.cy+=1;
-                            if(capaint>27){
-                                capaint=0;
-                            }
-                            
-                        }
-                    }
-                } else{
-                    Player.cx+=1;
-                }
+                capamozog();
                 // capa korkorosen mozog VEGE
                 keyDown[3] = true;
             }
@@ -237,9 +214,21 @@ public class Keys implements KeyListener{
             System.out.println("Player.playerx= "+Player.playerx);
             System.out.println("Player.playery= "+Player.playery);
             if(!keyDown[4]){
+                // Viztisztito counterek kezelese KEZDETE
                 if(viztisztitobool1==true){
                     Player.viztisztito_counter++;
                 }
+                if(viztisztitobool2==true){
+                    Player.viztisztito_counter2++;
+                }
+                if(viztisztitobool3==true){
+                    Player.viztisztito_counter3++;
+                }
+                if(viztisztitobool4==true){
+                    Player.viztisztito_counter4++;
+                }
+                // Viztisztito counterek kezelese VEGE
+
                 Random random = new Random();
                 int randint = random.nextInt(16)+1;
                 System.out.println(randint);
@@ -730,24 +719,7 @@ public class Keys implements KeyListener{
                 // cselekvesek, ehseg, szomjusag kezelese VEGE
                 
                 // capa korkorosen mozog KEZDETE
-                capaint++;
-                if(capaint>7){
-                    Player.cy-=1;
-                    if(capaint>14){
-                        Player.cy+=1;
-                        Player.cx-=1;
-                        if(capaint>21){
-                            Player.cx+=1;
-                            Player.cy+=1;
-                            if(capaint>27){
-                                capaint=0;
-                            }
-                            
-                        }
-                    }
-                } else{
-                    Player.cx+=1;
-                }
+                capamozog();
                 // capa korkorosen mozog VEGE
                 keyDown[4] = true;
             }
@@ -755,10 +727,21 @@ public class Keys implements KeyListener{
         
         if(arg1.getKeyCode() == KeyEvent.VK_5 || arg1.getKeyCode() == KeyEvent.VK_NUMPAD5){
              if(!keyDown[5]){
-                 if(viztisztitobool1==true){
+                // Viztisztito counterek kezelese KEZDETE
+                if(viztisztitobool1==true){
                     Player.viztisztito_counter++;
                 }
-                Handler.cselekvesek++; 
+                if(viztisztitobool2==true){
+                    Player.viztisztito_counter2++;
+                }
+                if(viztisztitobool3==true){
+                    Player.viztisztito_counter3++;
+                }
+                if(viztisztitobool4==true){
+                    Player.viztisztito_counter4++;
+                }
+                // Viztisztito counterek kezelese VEGE
+
                 // Lerakhatja a jatekos a halot?
                 if((Handler.halo > 0)
                 && ((Player.playerx==360 && Player.playery==266)
@@ -774,90 +757,94 @@ public class Keys implements KeyListener{
                 || (Player.playerx==360 && Player.playery==304)
                 || (Player.playerx==360 && Player.playery==285))
                 ){
-                    if(haloszamlalo==0){
-                        halox=Player.playerx;
-                        haloy=Player.playery;
-                        haloszamlalo++;
-                        halobool1=true;
-                        Handler.halo--;
-                    }
-                    else if(haloszamlalo==1){
-                        halox2=Player.playerx;
-                        haloy2=Player.playery;
-                        haloszamlalo++;
-                        halobool2=true;
-                        Handler.halo--;
-                    }
-                    else if(haloszamlalo==2){
-                        halox3=Player.playerx;
-                        haloy3=Player.playery;
-                        haloszamlalo++;
-                        halobool3=true;
-                        Handler.halo--;
-                    }
-                    else if(haloszamlalo==3){
-                        halox4=Player.playerx;
-                        haloy4=Player.playery;
-                        haloszamlalo++;
-                        halobool4=true;
-                        Handler.halo--;
-                    }
-                    else if(haloszamlalo==4){
-                        halox5=Player.playerx;
-                        haloy5=Player.playery;
-                        haloszamlalo++;
-                        halobool5=true;
-                        Handler.halo--;
-                    }
-                    else if(haloszamlalo==5){
-                        halox6=Player.playerx;
-                        haloy6=Player.playery;
-                        haloszamlalo++;
-                        halobool6=true;
-                        Handler.halo--;
-                    }
-                    else if(haloszamlalo==6){
-                        halox7=Player.playerx;
-                        haloy7=Player.playery;
-                        haloszamlalo++;
-                        halobool7=true;
-                        Handler.halo--;
-                    }
-                    else if(haloszamlalo==7){
-                        halox8=Player.playerx;
-                        haloy8=Player.playery;
-                        haloszamlalo++;
-                        halobool8=true;
-                        Handler.halo--;
-                    }
-                    else if(haloszamlalo==8){
-                        halox9=Player.playerx;
-                        haloy9=Player.playery;
-                        haloszamlalo++;
-                        halobool9=true;
-                        Handler.halo--;
-                    }
-                    else if(haloszamlalo==9){
-                        halox10=Player.playerx;
-                        haloy10=Player.playery;
-                        haloszamlalo++;
-                        halobool10=true;
-                        Handler.halo--;
-                    }
-                    else if(haloszamlalo==10){
-                        halox11=Player.playerx;
-                        haloy11=Player.playery;
-                        haloszamlalo++;
-                        halobool11=true;
-                        Handler.halo--;
-                    }
-                    else if(haloszamlalo==11){
-                        halox12=Player.playerx;
-                        haloy12=Player.playery;
-                        haloszamlalo++;
-                        halobool12=true;
-                        Handler.halo--;
-                    }
+                     switch (haloszamlalo) {
+                         case 0:
+                             halox=Player.playerx;
+                             haloy=Player.playery;
+                             haloszamlalo++;
+                             halobool1=true;
+                             Handler.halo--;
+                             break;
+                         case 1:
+                             halox2=Player.playerx;
+                             haloy2=Player.playery;
+                             haloszamlalo++;
+                             halobool2=true;
+                             Handler.halo--;
+                             break;
+                         case 2:
+                             halox3=Player.playerx;
+                             haloy3=Player.playery;
+                             haloszamlalo++;
+                             halobool3=true;
+                             Handler.halo--;
+                             break;
+                         case 3:
+                             halox4=Player.playerx;
+                             haloy4=Player.playery;
+                             haloszamlalo++;
+                             halobool4=true;
+                             Handler.halo--;
+                             break;
+                         case 4:
+                             halox5=Player.playerx;
+                             haloy5=Player.playery;
+                             haloszamlalo++;
+                             halobool5=true;
+                             Handler.halo--;
+                             break;
+                         case 5:
+                             halox6=Player.playerx;
+                             haloy6=Player.playery;
+                             haloszamlalo++;
+                             halobool6=true;
+                             Handler.halo--;
+                             break;
+                         case 6:
+                             halox7=Player.playerx;
+                             haloy7=Player.playery;
+                             haloszamlalo++;
+                             halobool7=true;
+                             Handler.halo--;
+                             break;
+                         case 7:
+                             halox8=Player.playerx;
+                             haloy8=Player.playery;
+                             haloszamlalo++;
+                             halobool8=true;
+                             Handler.halo--;
+                             break;
+                         case 8:
+                             halox9=Player.playerx;
+                             haloy9=Player.playery;
+                             haloszamlalo++;
+                             halobool9=true;
+                             Handler.halo--;
+                             break;
+                         case 9:
+                             halox10=Player.playerx;
+                             haloy10=Player.playery;
+                             haloszamlalo++;
+                             halobool10=true;
+                             Handler.halo--;
+                             break;
+                         case 10:
+                             halox11=Player.playerx;
+                             haloy11=Player.playery;
+                             haloszamlalo++;
+                             halobool11=true;
+                             Handler.halo--;
+                             break;
+                         case 11:
+                             halox12=Player.playerx;
+                             haloy12=Player.playery;
+                             haloszamlalo++;
+                             halobool12=true;
+                             Handler.halo--;
+                             break;
+                         default:
+                             break;
+                     }
                 }
                 keyDown[5] = true;
              }
@@ -865,22 +852,58 @@ public class Keys implements KeyListener{
         
         if(arg1.getKeyCode() == KeyEvent.VK_4 || arg1.getKeyCode() == KeyEvent.VK_NUMPAD4){
             if(!keyDown[6]){
+                // Viztisztito counterek kezelese KEZDETE
                 if(viztisztitobool1==true){
                     Player.viztisztito_counter++;
                 }
-                Handler.cselekvesek++;
+                if(viztisztitobool2==true){
+                    Player.viztisztito_counter2++;
+                }
+                if(viztisztitobool3==true){
+                    Player.viztisztito_counter3++;
+                }
+                if(viztisztitobool4==true){
+                    Player.viztisztito_counter4++;
+                }
+                // Viztisztito counterek kezelese VEGE
+
                 // Lerakhatja a jatekos a viztisztitot?
                 if((Handler.viztisztito > 0)
                    && ((Player.playerx==380 && Player.playery==285)
                    || (Player.playerx==400 && Player.playery==285)
                    || (Player.playerx==400 && Player.playery==304)
                    || (Player.playerx==380 && Player.playery==304))){
-                    if(viztisztitoszamlalo==0){
-                        viztisztitox=Player.playerx;
-                        viztisztitoy=Player.playery;
-                        viztisztitoszamlalo++;
-                        viztisztitobool1=true;
-                        Handler.viztisztito--;
+                    switch (viztisztitoszamlalo) {
+                        case 0:
+                            viztisztitox=Player.playerx;
+                            viztisztitoy=Player.playery;
+                            viztisztitoszamlalo++;
+                            viztisztitobool1=true;
+                            Handler.viztisztito--;
+                            break;
+                        case 1:
+                            viztisztitox2=Player.playerx;
+                            viztisztitoy2=Player.playery;
+                            viztisztitoszamlalo++;
+                            viztisztitobool2=true;
+                            Handler.viztisztito--;
+                            break;
+                        case 2:
+                            viztisztitox3=Player.playerx;
+                            viztisztitoy3=Player.playery;
+                            viztisztitoszamlalo++;
+                            viztisztitobool3=true;
+                            Handler.viztisztito--;
+                            break;
+                        case 3:
+                            viztisztitox4=Player.playerx;
+                            viztisztitoy4=Player.playery;
+                            viztisztitoszamlalo++;
+                            viztisztitobool4=true;
+                            Handler.viztisztito--;
+                            break;
+                        default:
+                            break;
                     }
                 }
                 keyDown[6] = true;
@@ -916,6 +939,27 @@ public class Keys implements KeyListener{
     
     @Override
     public void keyTyped(KeyEvent arg1) {}
+    
+    public void capamozog(){
+        capaint++;
+        if(capaint>7){
+            Player.cy-=1;
+            if(capaint>14){
+                Player.cy+=1;
+                Player.cx-=1;
+                if(capaint>21){
+                    Player.cx+=1;
+                    Player.cy+=1;
+                    if(capaint>27){
+                        capaint=0;
+                    }
+
+                }
+            }
+        } else{
+            Player.cx+=1;
+        }
+    }
 
     // getter-ek
     public static boolean isHalobool1() {
@@ -956,6 +1000,15 @@ public class Keys implements KeyListener{
     
     public static boolean isViztisztitobool1(){
         return viztisztitobool1;
+    }
+    public static boolean isViztisztitobool2(){
+        return viztisztitobool2;
+    }
+    public static boolean isViztisztitobool3(){
+        return viztisztitobool3;
+    }
+    public static boolean isViztisztitobool4(){
+        return viztisztitobool4;
     }
     
 }

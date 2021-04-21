@@ -128,14 +128,8 @@ public class Raft extends Canvas implements Runnable{
     
     public static float clamp(float var, float min, float max){
         if(var > max){
-            Handler.cselekvesek--;
-            Handler.ehseg++;
-            Handler.szomjusag++;
             return max;
         } else if(var < min){
-            Handler.cselekvesek--;
-            Handler.ehseg++;
-            Handler.szomjusag++;
             return min;
         } else {
             return var;

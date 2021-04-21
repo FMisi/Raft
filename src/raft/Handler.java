@@ -12,9 +12,9 @@ public class Handler {
     public static int cselekvesek = 0;
     public static int ehseg = 100;
     public static int szomjusag = 100;
-    public static int deszka = 30;
-    public static int level = 30;
-    public static int hulladek = 30;
+    public static int deszka = 930;
+    public static int level = 930;
+    public static int hulladek = 930;
     
     // inventory
     public static int teruletbovites = 0;

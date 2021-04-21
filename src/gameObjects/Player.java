@@ -129,6 +129,9 @@ public class Player extends JPanel{
     static boolean vesztettelBool = false;
     
     public static int viztisztito_counter = 0;
+    public static int viztisztito_counter2 = 0;
+    public static int viztisztito_counter3 = 0;
+    public static int viztisztito_counter4 = 0;
     
     public Player(Color c, int x, int y){
         tile.first = x;
@@ -218,6 +221,8 @@ public class Player extends JPanel{
         
         //</editor-fold>
 
+        //<editor-fold defaultstate="collapsed" desc="viztisztito megjelenik vagy sem">
+        
         if(Keys.isViztisztitobool1()==true){
             if(viztisztito_counter < 25){
                 viztisztito.paintIcon(this, g, Keys.viztisztitox, Keys.viztisztitoy);
@@ -229,6 +234,44 @@ public class Player extends JPanel{
                 }
             }
         }
+        
+        if(Keys.isViztisztitobool2()==true){
+            if(viztisztito_counter2 < 25){
+                viztisztito.paintIcon(this, g, Keys.viztisztitox2, Keys.viztisztitoy2);
+            } else {
+                viztisztitotele.paintIcon(this, g, Keys.viztisztitox2, Keys.viztisztitoy2);
+                if(playerx==Keys.viztisztitox2 && playery==Keys.viztisztitoy2){
+                    Handler.szomjusag+=40;
+                    viztisztito_counter2=0;
+                }
+            }
+        }
+        
+        if(Keys.isViztisztitobool3()==true){
+            if(viztisztito_counter3 < 25){
+                viztisztito.paintIcon(this, g, Keys.viztisztitox3, Keys.viztisztitoy3);
+            } else {
+                viztisztitotele.paintIcon(this, g, Keys.viztisztitox3, Keys.viztisztitoy3);
+                if(playerx==Keys.viztisztitox3 && playery==Keys.viztisztitoy3){
+                    Handler.szomjusag+=40;
+                    viztisztito_counter3=0;
+                }
+            }
+        }
+        
+        if(Keys.isViztisztitobool4()==true){
+            if(viztisztito_counter4 < 25){
+                viztisztito.paintIcon(this, g, Keys.viztisztitox4, Keys.viztisztitoy4);
+            } else {
+                viztisztitotele.paintIcon(this, g, Keys.viztisztitox4, Keys.viztisztitoy4);
+                if(playerx==Keys.viztisztitox4 && playery==Keys.viztisztitoy4){
+                    Handler.szomjusag+=40;
+                    viztisztito_counter4=0;
+                }
+            }
+        }
+        
+        //</editor-fold>
         
         // Megol a capa? KEZDETE
         if((playerx==capax && playery == capay)
