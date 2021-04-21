@@ -9,7 +9,7 @@ public class Handler {
     public static Player playerOne = new Player(Color.WHITE, 19, 15);
     
     // szamlalok
-    public static int cselekvesek = 990;
+    public static int cselekvesek = 0;
     public static int ehseg = 100;
     public static int szomjusag = 100;
     public static int deszka = 930;
@@ -77,9 +77,9 @@ public class Handler {
         // hal
         Graphics2D g16 = (Graphics2D)g;  
         
-        g2.setFont(new Font("Arial", 38, 14));
+        g2.setFont(new Font("Arial", 4, 14));
         g2.drawString("Cselekvések: "+cselekvesek + "", 7, 14);
-        g3.setFont(new Font("Arial", 38, 38));
+        g3.setFont(new Font("Arial", 4, 38));
         
         if(cselekvesek>=1000){
             cselekvesek=1000;
@@ -88,9 +88,9 @@ public class Handler {
             szomjusag=100;
             g3.drawString("TÚLÉLTED! GYŐZTÉL!:D", 171, 101);
         }
-        g4.setFont(new Font("Arial", 14, 14));
+        g4.setFont(new Font("Arial", 4, 14));
         g4.drawString("Éhség: "+ehseg + "", 7, 34);
-        g5.setFont(new Font("Arial", 14, 14));
+        g5.setFont(new Font("Arial", 4, 14));
         g5.drawString("Szomjúság: "+szomjusag + "", 7, 54);
         if((ehseg<=0) || (szomjusag<=0)){
             cselekvesek=0;
@@ -99,35 +99,35 @@ public class Handler {
             Vesztettel(g);
         }
         
-        g7.setFont(new Font("Arial", 14, 14));
+        g7.setFont(new Font("Arial", 4, 14));
         g7.drawString("Deszka: "+deszka + "", 7, 74);
-        g8.setFont(new Font("Arial", 14, 14));
+        g8.setFont(new Font("Arial", 4, 14));
         g8.drawString("Levél: "+level + "", 7, 94);
-        g9.setFont(new Font("Arial", 14, 14));
+        g9.setFont(new Font("Arial", 4, 14));
         g9.drawString("Hulladék: "+hulladek + "", 7, 114);
         
         g10.setColor(Color.BLACK);
-        g10.setFont(new Font("Arial", 14, 14));
+        g10.setFont(new Font("Arial", 4, 14));
         g10.drawString("Területbővítés:  "+teruletbovites + "", 7, 548);
         g11.setColor(Color.BLACK);
-        g11.setFont(new Font("Arial", 14, 14));
+        g11.setFont(new Font("Arial", 4, 14));
         g11.drawString("Lándzsa:  "+landzsa + "", 157, 548);
         g12.setColor(Color.BLACK);
-        g12.setFont(new Font("Arial", 14, 14));
+        g12.setFont(new Font("Arial", 4, 14));
         g12.drawString("Tűzhely:  "+tuzhely + "", 307, 548);
         g13.setColor(Color.BLACK);
-        g13.setFont(new Font("Arial", 14, 14));
+        g13.setFont(new Font("Arial", 4, 14));
         g13.drawString("Víztisztító:  "+viztisztito + "", 457, 548);
         g14.setColor(Color.BLACK);
-        g14.setFont(new Font("Arial", 14, 14));
+        g14.setFont(new Font("Arial", 4, 14));
         g14.drawString("Háló:  "+halo + "", 607, 548);
         
         g15.setColor(Color.BLACK);
-        g15.setFont(new Font("Arial", 14, 14));
+        g15.setFont(new Font("Arial", 4, 14));
         g15.drawString("Burgonya:  "+burgonya + "", 7, 564);
         
         g16.setColor(Color.BLACK);
-        g16.setFont(new Font("Arial", 14, 14));
+        g16.setFont(new Font("Arial", 4, 14));
         g16.drawString("Hal:  "+hal + "", 157, 564);
     }
     
@@ -138,7 +138,7 @@ public class Handler {
             Window.clip.stop();
             Window.clip3.start();
             Graphics2D g6 = (Graphics2D) g;
-            g6.setFont(new Font("Arial", 38, 38));
+            g6.setFont(new Font("Arial", 4, 38));
             g6.drawString("VESZTETTÉL!:-(", 231, 101);
         }
     }

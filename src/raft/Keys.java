@@ -10,7 +10,7 @@ public class Keys implements KeyListener{
     
     private int capaint = 0;
     
-    private boolean[] keyDown = {false, false, false, false, false, false, false, false};
+    private boolean[] keyDown = {false, false, false, false, false, false, false, false, false};
     
     private static boolean halobool1 = false;
     private static boolean halobool2 = false;
@@ -269,47 +269,83 @@ public class Keys implements KeyListener{
         //<editor-fold defaultstate="collapsed" desc="elemek craft-olasa">
         if(arg1.getKeyCode() == KeyEvent.VK_T){
             if(Handler.deszka>=2 && Handler.level>=2){
+                Handler.cselekvesek++;
+                Handler.ehseg--;
+                Handler.szomjusag--;
+                Player.le += 19;
                 Handler.teruletbovites++;
                 Handler.deszka-=2;
                 Handler.level-=2;
+                // capa korkorosen mozog KEZDETE
+                capamozog();
+                // capa korkorosen mozog VEGE
             }
         }
         if(arg1.getKeyCode() == KeyEvent.VK_L){
             if(Handler.deszka>=4 && Handler.level>=4 && Handler.hulladek>=4){
+                Handler.cselekvesek++;
+                Handler.ehseg--;
+                Handler.szomjusag--;
+                Player.le += 19;
                 Handler.landzsa++;
                 Handler.deszka-=4;
                 Handler.level-=4;
                 Handler.hulladek-=4;
+                // capa korkorosen mozog KEZDETE
+                capamozog();
+                // capa korkorosen mozog VEGE
             }
         }
         if(arg1.getKeyCode() == KeyEvent.VK_Z){
             if(Handler.deszka>=2 && Handler.level>=4 && Handler.hulladek>=3){
+                Handler.cselekvesek++;
+                Handler.ehseg--;
+                Handler.szomjusag--;
+                Player.le += 19;
                 Handler.tuzhely++;
                 Handler.deszka-=2;
                 Handler.level-=4;
                 Handler.hulladek-=3;
+                // capa korkorosen mozog KEZDETE
+                capamozog();
+                // capa korkorosen mozog VEGE
             }
         }
         if(arg1.getKeyCode() == KeyEvent.VK_V){
             if(Handler.level>=2 && Handler.hulladek>=4){
+                Handler.cselekvesek++;
+                Handler.ehseg--;
+                Handler.szomjusag--;
+                Player.le += 19;
                 Handler.viztisztito++;
                 Handler.level-=2;
                 Handler.hulladek-=4;
+                // capa korkorosen mozog KEZDETE
+                capamozog();
+                // capa korkorosen mozog VEGE
             }
         }
         if(arg1.getKeyCode() == KeyEvent.VK_H){
             if(Handler.deszka>=2 && Handler.level>=6){
+                Handler.cselekvesek++;
+                Handler.ehseg--;
+                Handler.szomjusag--;
+                Player.le += 19;
                 Handler.halo++;
                 Handler.deszka-=2;
                 Handler.level-=6;
+                // capa korkorosen mozog KEZDETE
+                capamozog();
+                // capa korkorosen mozog VEGE
             }
         }
         //</editor-fold>
         
         if(arg1.getKeyCode() == KeyEvent.VK_SPACE){
-            System.out.println("Player.playerx= "+Player.playerx);
-            System.out.println("Player.playery= "+Player.playery);
             if(!keyDown[4]){
+                Handler.cselekvesek++;
+                Handler.ehseg--;
+                Handler.szomjusag--;
                 // Viztisztito counterek kezelese KEZDETE
                 if(viztisztitobool1==true){
                     Player.viztisztito_counter++;
@@ -839,12 +875,6 @@ public class Keys implements KeyListener{
                 }
                 //</editor-fold>
                 
-                // cselekvesek, ehseg, szomjusag kezelese KEZDETE
-                Handler.cselekvesek++;
-                Handler.ehseg--;
-                Handler.szomjusag--;
-                // cselekvesek, ehseg, szomjusag kezelese VEGE
-                
                 // capa korkorosen mozog KEZDETE
                 capamozog();
                 // capa korkorosen mozog VEGE
@@ -899,6 +929,13 @@ public class Keys implements KeyListener{
                 || (Player.playerx==360 && Player.playery==304)
                 || (Player.playerx==360 && Player.playery==285))
                 ){
+                    // capa korkorosen mozog KEZDETE
+                    capamozog();
+                    // capa korkorosen mozog VEGE
+                    Player.le+=19;
+                    Handler.cselekvesek++;
+                    Handler.ehseg--;
+                    Handler.szomjusag--;
                      switch (haloszamlalo) {
                          case 0:
                              halox=Player.playerx;
@@ -1030,6 +1067,13 @@ public class Keys implements KeyListener{
                    || (Player.playerx==400 && Player.playery==285)
                    || (Player.playerx==400 && Player.playery==304)
                    || (Player.playerx==380 && Player.playery==304))){
+                    // capa korkorosen mozog KEZDETE
+                    capamozog();
+                    // capa korkorosen mozog VEGE
+                    Player.le+=19;
+                    Handler.cselekvesek++;
+                    Handler.ehseg--;
+                    Handler.szomjusag--;
                     switch (viztisztitoszamlalo) {
                         case 0:
                             viztisztitox=Player.playerx;
@@ -1105,6 +1149,13 @@ public class Keys implements KeyListener{
                    || (Player.playerx==400 && Player.playery==285)
                    || (Player.playerx==400 && Player.playery==304)
                    || (Player.playerx==380 && Player.playery==304))){
+                    // capa korkorosen mozog KEZDETE
+                    capamozog();
+                    // capa korkorosen mozog VEGE
+                    Player.le+=19;
+                    Handler.cselekvesek++;
+                    Handler.ehseg--;
+                    Handler.szomjusag--;
                     switch (tuzhelyszamlalo) {
                         case 0:
                             tuzhelyx=Player.playerx;
@@ -1140,7 +1191,32 @@ public class Keys implements KeyListener{
                 }
                 keyDown[7] = true;
             }
-       } 
+        }
+       
+        if(arg1.getKeyCode() == KeyEvent.VK_O){
+            if(!keyDown[8]){
+                if(!((Player.playerx==380 && Player.playery==285)
+                   || (Player.playerx==400 && Player.playery==285)
+                   || (Player.playerx==400 && Player.playery==304)
+                   || (Player.playerx==380 && Player.playery==304))){
+                    // capa korkorosen mozog KEZDETE
+                    capamozog();
+                    // capa korkorosen mozog VEGE
+                    Random random = new Random();
+                    int horgaszrandom = random.nextInt(100)+1;
+                    System.out.println(horgaszrandom);
+                    Handler.cselekvesek++;
+                    Handler.ehseg--;
+                    Handler.szomjusag--;
+                    Player.le+=19;
+                    if(horgaszrandom<=25){
+                        Handler.hal++;
+                    }
+                }
+                keyDown[8] = true;
+           }
+       }
+       
     }
 
     @Override
@@ -1168,6 +1244,9 @@ public class Keys implements KeyListener{
         }
         if(arg1.getKeyCode() == KeyEvent.VK_3 || arg1.getKeyCode() == KeyEvent.VK_NUMPAD3){
             keyDown[7] = false;
+        }
+        if(arg1.getKeyCode() == KeyEvent.VK_O){
+            keyDown[8] = false;
         }
     }
     
