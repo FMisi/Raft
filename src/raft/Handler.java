@@ -3,9 +3,13 @@ package raft;
 import java.awt.*;
 import gameObjects.Player;
 
+/**
+ *
+ * @author Felegyi Mihaly Patrik
+ */
 public class Handler {
     
-    // Milyen szinu a player es hol van:
+    // Milyen szinu a player es hol van (a szin nem fontos, csak debug-hoz volt jo):
     public static Player playerOne = new Player(Color.WHITE, 19, 15);
     
     // szamlalok
@@ -27,6 +31,9 @@ public class Handler {
     
     public static boolean winbool = false;
     
+    /**
+     *
+     */
     public static void tick(){
         if(ehseg>100){
             ehseg=100;
@@ -34,14 +41,19 @@ public class Handler {
         if(szomjusag>100){
             szomjusag=100;
         }
-        
-        if(cselekvesek==1000 || cselekvesek > 1000){
+        // Zene kivetele kikommentezes segitsegevel KEZDETE
+        /*if(cselekvesek==1000 || cselekvesek > 1000){
             Window.clip.stop();
             Window.clip2.start();
-        }
+        }*/
+        // Zene kivetele kikommentezes segitsegevel VEGE
         playerOne.tick();
     }
     
+    /**
+     *
+     * @param g
+     */
     public static void render(Graphics g){
         playerOne.render(g);
         // cselekvesek
@@ -135,8 +147,10 @@ public class Handler {
         if(winbool==true){
         }
         else{
-            Window.clip.stop();
-            Window.clip3.start();
+            // Zene kivetele kikommentezes segitsegevel KEZDETE
+            /*Window.clip.stop();
+            Window.clip3.start();*/
+            // Zene kivetele kikommentezes segitsegevel VEGE
             Graphics2D g6 = (Graphics2D) g;
             g6.setFont(new Font("Arial", 4, 38));
             g6.drawString("VESZTETTÉL!:-(", 231, 101);

@@ -4,18 +4,26 @@ package raft;
 import java.awt.*;
 import java.awt.image.*;
 
+/**
+ *
+ * @author Felegyi Mihaly Patrik
+ */
 public class Raft extends Canvas implements Runnable{
 
     private Thread thread;
     private boolean running = false;
     
+    /**
+     *
+     */
     public Raft() {
-        
-        
         new Window(812, 606, "Raft", this);
         addKeyListener(new Keys());
     }
     
+    /**
+     *
+     */
     public synchronized void start(){
         running = true;
         thread = new Thread(this);
@@ -126,6 +134,13 @@ public class Raft extends Canvas implements Runnable{
         Handler.tick();
     }
     
+    /**
+     *
+     * @param var
+     * @param min
+     * @param max
+     * @return
+     */
     public static float clamp(float var, float min, float max){
         if(var > max){
             return max;

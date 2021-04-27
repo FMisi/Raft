@@ -1,21 +1,37 @@
 package raft;
 
 import java.awt.*;
-import java.io.File;
 import javax.swing.*;
-import javax.sound.sampled.*;
+// Zene kivetele kikommentezes segitsegevel KEZDETE
+/*import java.io.File;
+import javax.sound.sampled.*;*/
+// Zene kivetele kikommentezes segitsegevel VEGE
 
+/**
+ *
+ * @author Felegyi Mihaly Patrik
+ */
 public class Window extends JFrame{
-
-    private File bgm = new File("music/raftgamemusic2B.wav");
+    
+    // Zene kivetele kikommentezes segitsegevel KEZDETE
+    /*private File bgm = new File("music/raftgamemusic2B.wav");
     private File victorybgm = new File("music/raftvictory.wav");
     private File wastedbgm = new File("music/wasted.wav");
     public static Clip clip;
     public static Clip clip2;
-    public static Clip clip3;
+    public static Clip clip3;*/
+    // Zene kivetele kikommentezes segitsegevel VEGE
     
+    /**
+     *
+     * @param width
+     * @param height
+     * @param title
+     * @param raft
+     */
     public Window(int width, int height, String title, Raft raft){
-        
+        // Zene kivetele kikommentezes segitsegevel KEZDETE
+        /*
         try{
             
             File musicPath = bgm;
@@ -55,6 +71,8 @@ public class Window extends JFrame{
         }catch(Exception ex){
             ex.printStackTrace();
         }
+        */
+        // Zene kivetele kikommentezes segitsegevel VEGE
         
         JFrame frame = new JFrame(title);
         frame.setSize(width, height);

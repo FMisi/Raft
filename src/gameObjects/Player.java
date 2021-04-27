@@ -159,10 +159,6 @@ public class Player extends JPanel{
         le3 = 19*Handler.cselekvesek-38;
         
         if(vesztettelBool == true){
-            Graphics2D vg = (Graphics2D) g;
-            vg.setColor(Color.WHITE);
-            vg.setFont(new Font("Arial", 38, 38));
-            vg.drawString("VESZTETTÉL!:-(", 231, 101);
             Handler.cselekvesek=0;
             Handler.ehseg=0;
             Handler.szomjusag=0;
@@ -931,11 +927,14 @@ public class Player extends JPanel{
     }
 }
     // Nyersanyagok rajzolasa VEGE
+    
     private static void Vesztettel(){
         if(Handler.winbool==true){}
         else{
-            raft.Window.clip.stop();
-            raft.Window.clip3.start();
+            // Zene kivetele kikommentezes segitsegevel KEZDETE
+            /*raft.Window.clip.stop();
+            raft.Window.clip3.start();*/
+            // Zene kivetele kikommentezes segitsegevel VEGE
             vesztettelBool = true;
         }
     }
