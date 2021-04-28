@@ -7,7 +7,10 @@ import java.util.Random;
 import java.awt.event.*;
 
 /**
- *
+ * A Keys osztaly a felhasznaloi input-ot valositja meg<br>
+ * a KeyListener interfesz implementalasaval.<br>
+ * Valamennyi hozza tartozo feltetel bekovetkezesekor az adott esemenyt<br>
+ * bekovetkezteti
  * @author Felegyi Mihaly Patrik
  */
 public class Keys implements KeyListener{
@@ -95,6 +98,14 @@ public class Keys implements KeyListener{
     private int tuzhelyszamlalo = 0;
     public static boolean[] ravanteve = {false, false, false, false};
     
+    /**
+     * A keyPressed eljaras a lenyomott billentyuk KeyCode-jat vizsgalja,<br>
+     * es az alapjan hivja meg az adott KeyPressed eljarast<br>
+     * (KeyPressedW, KeyPressedA, stb.).<br>
+     * A keyDown tomb adott indexu erteket true-ra allitja.<br>
+     * A keyDown tombre a beragado billentyuk kezelese miatt van szukseg
+     * @param arg1 a lenyomott billentyu (de NEM annak KeyCode-ja)
+     */
     @Override
     public void keyPressed(KeyEvent arg1) {
         if(arg1.getKeyCode() == KeyEvent.VK_W){
@@ -811,6 +822,13 @@ public class Keys implements KeyListener{
     }
      // kulon haloszamlalo void VEGE
 
+    /**
+     * A keyReleased eljaras a felengedett billentyuk KeyCode-jat vizsgalja,<br>
+     * es az alapjan allitja a keyDown tomb adott indexu erteket vissza false-ra.<br>
+     * A keyDown tombre a beragado billentyuk kezelese miatt van szukseg
+     * (KeyPressedW, KeyPressedA, stb.)
+     * @param arg1 a lenyomott billentyu (de NEM annak KeyCode-ja)
+     */
     @Override
     public void keyReleased(KeyEvent arg1) {
         if(arg1.getKeyCode() == KeyEvent.VK_W){
@@ -842,9 +860,18 @@ public class Keys implements KeyListener{
         }
     }
     
+    /**
+     * A keyTyped eljaras akkor hivodik meg, ha leutunk egy billentyut.
+     * A KeyListener osztaly absztrakt metodusa, ezert kotelezo implementalni
+     * @param arg1 a leutott billentyu
+     */
     @Override
     public void keyTyped(KeyEvent arg1) {}
     
+    /**
+     * Nyersanyagok felvetelenek kezelesere hasznalatos az
+     * itempickup, es az altala meghivott eljarasok
+     */
     private void itempickup(){
         
         itempickupDeszkak();
@@ -982,6 +1009,10 @@ public class Keys implements KeyListener{
         }
     }
     
+    /**
+     * A randomHordosHokamoka eljarasok a hordok tartalmanak<br>
+     * randomizalasaert felelosek
+     */
     private void randomHordosHokamoka1(){
         Random random = new Random();
         int randint = random.nextInt(16)+1;
@@ -1265,7 +1296,7 @@ public class Keys implements KeyListener{
     }
     
     /**
-     *
+     * A capamozog eljarassal a capa mozgasat hatarozhatjuk meg
      */
     public void capamozog(){
         capaint++;

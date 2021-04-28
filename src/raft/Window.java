@@ -24,56 +24,44 @@ public class Window extends JFrame{
     
     /**
      *
-     * @param width
-     * @param height
-     * @param title
-     * @param raft
+     * @param width Az ablak szelessege
+     * @param height Az ablak hosszusaga
+     * @param title A cim
+     * @param raft A Raft tipusu parameter
      */
     public Window(int width, int height, String title, Raft raft){
         // Zene kivetele kikommentezes segitsegevel KEZDETE
         /*
         try{
-            
             File musicPath = bgm;
-            
             AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
             clip = AudioSystem.getClip();
             clip.open(audioInput);
             clip.start();
             clip.loop(Clip.LOOP_CONTINUOUSLY);
-            
         }catch(Exception ex){
             ex.printStackTrace();
         }
-        
         try{
-            
             File musicPath = victorybgm;
-            
             AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
             clip2 = AudioSystem.getClip();
             clip2.open(audioInput);
             clip2.stop();
-            
         }catch(Exception ex){
             ex.printStackTrace();
         }
-        
         try{
-            
             File musicPath = wastedbgm;
-            
             AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
             clip3 = AudioSystem.getClip();
             clip3.open(audioInput);
             clip3.stop();
-            
         }catch(Exception ex){
             ex.printStackTrace();
         }
         */
         // Zene kivetele kikommentezes segitsegevel VEGE
-        
         JFrame frame = new JFrame(title);
         frame.setSize(width, height);
         frame.setIconImage(Toolkit.getDefaultToolkit().getImage("image/icon.png"));
@@ -82,9 +70,7 @@ public class Window extends JFrame{
         frame.setLocationRelativeTo(null);
         frame.add(raft);
         frame.setVisible(true);
-        
         raft.start();
-  
     }
     
 }

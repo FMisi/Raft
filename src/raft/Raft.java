@@ -1,11 +1,12 @@
-//JB Java a new game series
 package raft;
 
 import java.awt.*;
 import java.awt.image.*;
 
 /**
- *
+ * A Raft class segitsegevel peldanyosithatunk egy ablakot,<br>
+ * hozzaadhatunk jatekunkhoz a billentyuzet hallgatonkat,<br>
+ * megrajzolhatjuk grid-unket, es kezelhetjuk jatekallapotunkat
  * @author Felegyi Mihaly Patrik
  */
 public class Raft extends Canvas implements Runnable{
@@ -14,7 +15,7 @@ public class Raft extends Canvas implements Runnable{
     private boolean running = false;
     
     /**
-     *
+     * Egy ablak peldanyositasa, billentyuzet hallgato hozzadasa
      */
     public Raft() {
         new Window(812, 606, "Raft", this);
@@ -22,7 +23,7 @@ public class Raft extends Canvas implements Runnable{
     }
     
     /**
-     *
+     * szal indito eljaras
      */
     public synchronized void start(){
         running = true;
@@ -30,6 +31,9 @@ public class Raft extends Canvas implements Runnable{
         thread.start();
     }
     
+    /**
+     * FPS kezeles futasidoben
+     */
     @Override
     public void run(){
         this.requestFocus();
@@ -68,6 +72,9 @@ public class Raft extends Canvas implements Runnable{
         stop();
     }
     
+    /**
+     * Szal megallito eljaras
+     */
     private void stop(){
         try{
             running = false;
@@ -77,7 +84,9 @@ public class Raft extends Canvas implements Runnable{
         }
     }
     
-    // rendereljuk a grafikus elemeket
+    /**
+     * Rendereljuk a grafikus elemeket
+     */
     private void render(){
         BufferStrategy bs = getBufferStrategy();
         if(bs == null){
@@ -110,7 +119,9 @@ public class Raft extends Canvas implements Runnable{
         bs.show();
     }
     
-    // grid megrajzol
+    /**
+     * Grid-et megrajzoljuk
+     */
     private void drawLines(Graphics g){
         g.setColor(Color.BLACK);
         int x = 0;
@@ -129,17 +140,20 @@ public class Raft extends Canvas implements Runnable{
             i++;
         }
     }
-
+    /**
+     * A tick eljarassal utasitasokat hajthatunk vegre notoriusan
+     */
     private void tick(){
         Handler.tick();
     }
     
     /**
-     *
-     * @param var
-     * @param min
-     * @param max
-     * @return
+     * A clamp fuggveny segitsegevel elerhetjuk azt,<br>
+     * hogy a jatekos ne tudjon lemenni a palyarol
+     * @param var A jatekos pozicioja
+     * @param min A minimum pozicio (0,0)
+     * @param max A maximum pozicio (39,27)
+     * @return Max-nal kisebb/egyenlo, min-nel nagyobb/egyenlo pozicio
      */
     public static float clamp(float var, float min, float max){
         if(var > max){

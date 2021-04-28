@@ -4,7 +4,7 @@ import java.awt.*;
 import gameObjects.Player;
 
 /**
- *
+ * A Handler osztaly segitsegevel a szamlalokat kezelhetjuk
  * @author Felegyi Mihaly Patrik
  */
 public class Handler {
@@ -32,7 +32,8 @@ public class Handler {
     public static boolean winbool = false;
     
     /**
-     *
+     * A tick metodus notoriusan meghivodva ellenorzi folyton<br>
+     * az ehseg es szomjusag szamlalokat
      */
     public static void tick(){
         if(ehseg>100){
@@ -51,8 +52,8 @@ public class Handler {
     }
     
     /**
-     *
-     * @param g
+     * Rendereles
+     * @param g A grafikus elemek erteke
      */
     public static void render(Graphics g){
         playerOne.render(g);
@@ -142,7 +143,11 @@ public class Handler {
         g16.setFont(new Font("Arial", 4, 14));
         g16.drawString("Hal:  "+hal + "", 157, 564);
     }
-    
+    /**
+     * A Vesztettel eljaras segitsegevel a vesztes esemenyet<br>
+     * kovetkeztethetjuk be, amikor szukseges
+     * @param g A grafikus elem a Vesztettel szoveg kiirasahoz
+     */
     private static void Vesztettel(Graphics g){
         if(winbool==true){
         }

@@ -7,6 +7,11 @@ import other.Storage;
 import raft.Handler;
 import raft.Keys;
 
+/**
+ * A Player class segitsegevel inicializaljuk a jatekos, a capa,<br>
+ * es a nyersanyagok kezdopoziciojat, poziciojukhoz felteteleket tudunk kotni
+ * @author Felegyi Mihaly Patrik
+ */
 public class Player extends JPanel{
     
     public Storage<Integer, Integer> tile = new Storage<Integer, Integer>();
@@ -928,6 +933,10 @@ public class Player extends JPanel{
 }
     // Nyersanyagok rajzolasa VEGE
     
+    /**
+     * A Vesztettel eljaras segitsegevel a vesztes esemenyet<br>
+     * kovetkeztethetjuk be, amikor szukseges
+     */
     private static void Vesztettel(){
         if(Handler.winbool==true){}
         else{
@@ -939,6 +948,7 @@ public class Player extends JPanel{
         }
     }
 
+    // getter-ek
     public static int getPlayerx() {
         return playerx;
     }
